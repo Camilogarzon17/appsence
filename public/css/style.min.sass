@@ -1,0 +1,4063 @@
+$color_prin: #79C000//#009EE2
+$color_secu: white
+$color_terc: black
+
+/*FONDO COLOR*/
+$color_fond_uno: $color_prin
+$color_fond_dos: $color_secu
+$color_fond_tre: $color_terc
+/*TITULO COLOR*/
+$color_titu_uno: $color_prin
+$color_titu_dos: $color_secu
+$color_titu_tre: $color_terc
+/*TEXTO COLOR*/
+$color_text_uno: $color_terc
+$color_text_dos: $color_secu
+$color_text_tre: $color_prin
+/*TEXTO BOTON*/
+$color_boto_uno: $color_prin
+$color_boto_dos: $color_secu
+$color_boto_tre: $color_terc
+/*ALERTAS COLOR*/
+$color_error: red
+
+/*MEDIDAS DISPOSITIVOS*/
+$desktop: 1200px
+$netbook: 1024px
+$laptop: 850px
+$tablet: 768px
+$mobil: 480px
+$btn-bar-mob: 25px
+$horizontal: 400px
+//BOOTSTRAP 
+#valor_abono
+	padding-left: 10px
+	box-sizing: border-box
+.modal-content
+	border-radius: 15px !important
+.modal-body
+	padding: 0px !important
+button.close
+	position: absolute !important
+	background: #ddd !important
+	height: 30px !important
+	width: 30px !important
+	border-radius: 50% !important
+	right: -10px !important
+	top: -10px !important
+	z-index: 250
+	opacity: .7 !important
+	&:hover
+		opacity: .9 !important
+/*IMPORTACIONES*/
+@import url('https://fonts.googleapis.com/css?family=Raleway')
+//SISTEMA #009EE2  #ABD511
+body
+	background-color: #fff !important
+*
+	margin: 0
+	padding: 0
+	font-family: 'Raleway', sans-serif
+a
+	text-decoration: none !important
+label
+	padding: 0
+	margin: 0
+	width: auto
+textarea, select, input[type=email], input[type=date], input[type=number], input[type=text], input[type=password], input[type=file]
+	//box-shadow: 0px 1px 0px rgba($color_secu,0.5)
+	outline: none
+	line-height: normal !important
+input
+	line-height: normal !important
+textarea
+	border-radius: 10px !important
+	display: block
+	height: auto
+	word-break: break-all
+	white-space: pre-line
+button
+	outline: none
+	&:focus
+		outline: none
+	&:active
+		outline: none
+
+//TABLAS
+.tbl-opti
+	display: flex !important
+	@media (max-width: $netbook)
+		flex-wrap: wrap
+.tbl-res-fact, .tablaFact_wrapper
+	width: 100% !important
+table.dataTable tbody th, table.dataTable tbody td
+	padding: 3px 5px !important
+.dataTables_wrapper
+	width: 100%
+.dataTables_length label, .dataTables_filter label
+	display: flex !important
+	align-items: center !important
+	.custom-select-sm
+		margin: 0px 3px !important
+.form-control-sm
+	border-radius: 25px !important
+.row
+	display: flex !important
+	align-items: center !important
+.dataTables_wrapper .dataTables_paginate .paginate_button
+	padding: 0px !important
+	border-radius: 25px
+	overflow: hidden
+	&:hover
+		opacity: .8
+.page-link
+	border: 0px
+.table-bordered thead th
+	border: 0px !important
+//BOTON FLOTANTE
+.float_btn
+	width: 3rem
+	height: 3rem
+	border-radius: 50%
+	position: fixed
+	bottom: 0.5rem
+	left: 0.5rem
+	z-index: 1000
+	transition: all .3s
+	box-shadow: 0px 0px 5px rgba($color_terc, 0.4)
+	cursor: pointer
+	&.pulsar
+		transform: rotate(45deg)
+	&::before,&::after
+		position: absolute
+		width: 40%
+		height: 4%
+		content: ''
+		top: 49%
+		left: 30%
+		background-color: $color_secu
+	&::after
+		transform: rotate(90deg)
+.menu_circular
+	box-shadow: 0px 0px 5px rgba($color_terc, 0.8)
+	position: fixed
+	width: 16rem
+	height: 16rem
+	border-radius: 50%
+	transform: scale(0) rotate(-360deg)
+	transition: all .3s
+	z-index: 999
+	bottom: -5.5rem
+	left: -5.5rem
+	&.expandir
+		transform: scale(1) rotate(0deg)
+	ul
+		margin: 0
+		padding: 0
+		list-style: none
+		font-size: 1.5rem
+	a
+		text-decoration: none
+		display: block
+		color: white
+		&:hover
+			color: rgba(white,0.8)
+	li
+		position: absolute
+		width: 2rem
+		top: 2rem
+		right: calc(50% - 1rem)
+		transform-origin: center 6rem
+		text-align: center
+$opciones: 4
+@for $i from 2 through $opciones
+	.menu_circular li:nth-child(#{$i})
+		$rotacion: (90 / ($opciones - 1)) * ($i - 1)
+		transform: rotate(#{$rotacion}deg)
+		a
+			transform: rotate(-#{$rotacion}deg)
+
+.cont-tbl
+	@media (max-width: $laptop)
+		overflow-x: auto !important
+//SELECCION DE COLORES
+.boton_color
+	display: none
+	+ label
+		display: inline-block
+		margin: none
+		width: 45px
+		height: 45px
+		border-radius: 50%
+		cursor: pointer
+	&:checked + label
+		position: relative
+		box-shadow: 0px 2px 15px rgba($color_terc,0.5)
+		&:after
+			content: ""
+			display: block
+			height: 22px
+			width: 22px
+			top: 25%
+			left: 25%
+			border-radius: 50%
+			background: #F7F7F7
+			position: absolute
+
+
+#boton_azul + label
+	background: #009EE2
+#boton_verde + label
+	background: #003B35
+#boton_naranja + label
+	background: #FE8C0C
+#boton_manzana + label
+	background: #ABD511
+#boton_morado + label
+	background: #800080
+#boton_negro + label
+	background: #000000
+#boton_rojo + label
+	background: #821221
+#boton_voscuro + label
+	background: #00526A
+//CONTENEDORES 
+
+.contenedor_padding
+	padding: 10px
+	width: 100%
+	box-sizing: border-box
+	@media (max-width: $tablet)
+		padding: 10px 5px
+.contenedor-flex 
+	display: flex
+	flex-wrap: wrap
+	align-items: center
+	align-content: center
+	align-self: auto
+	position: relative
+	box-sizing: border-box
+.cont-just-sbet
+	justify-content: space-between
+.cont-just-saro
+	justify-content: space-around
+.cont-just-fend
+	justify-content: flex-end
+.cont-just-fsta
+	justify-content: flex-start
+.contenedor_top
+	display: flex
+	flex-wrap: wrap
+	position: relative
+	justify-content: space-between
+	align-items: flex-start
+.cont-pad-lat
+	padding: 0px 5px
+	box-sizing: border-box
+.cont-col-uno
+	background-color: #dfdfdf !important
+.cont-flex
+	display: flex
+	flex-wrap: wrap
+.cont-alig-top
+	align-items: top
+.cont-alig-cen
+	align-items: center
+.cont-center
+	margin: auto
+.cont-uno
+	position: relative
+	width: 10%
+.cont-dos
+	position: relative
+	width: 20%
+.cont-tres
+	position: relative
+	width: 30%
+	@media (max-width: $tablet)
+		width: 100%
+.cont-cuat
+	position: relative
+	width: 40%
+.cont-cinc
+	position: relative
+	width: 50%
+.cont-seis
+	position: relative
+	width: 60%
+.cont-siet
+	position: relative
+	width: 70%
+	@media (max-width: $tablet)
+		width: 100%
+.cont-ocho
+	position: relative
+	width: 80%	
+.cont-nuev
+	position: relative
+	width: 90%	
+.cont-diez
+	position: relative
+	width: 100%	
+.cont-hful
+	height: 100vh
+
+.login
+	background-image: url('../img/logo/fondo.png')
+	background-size: cover
+	background-position: center
+	background-repeat: no-repeat
+	background-attachment: fixed
+
+.login-sec
+	@media (max-width: $tablet)
+		.cont-cuat
+			width: 100% !important
+		.cont-log
+			width: 100% !important
+		.cont-seis
+			display: none !important
+.cont-log
+	width: 80%
+	background-color: rgba(211, 211, 211, 0.3)
+	border-radius: 10px
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4)
+	padding: 60px 30px
+	box-sizing: border-box
+	display: flex
+	flex-wrap: wrap
+	justify-content: center
+.log-img
+	width: 100%
+	margin-bottom: 20px
+
+.form-login
+	box-sizing: border-box	
+.form_uno
+	justify-content: space-between
+	padding: 5px
+.form_dos
+	justify-content: space-around
+	padding: 5px 0px
+	max-width: 100%
+.form_tres
+	justify-content: center
+	align-items: center
+	align-content: center
+	padding: 5px 0px
+.cont-btn-color
+	position: absolute
+	top: 10px
+	right: 50px
+	.btn-color-tit
+		background: $color_secu
+		color: $color_terc
+		padding: 0px 10px
+		border-radius: 15px 0px 0px 15px
+	.btn-color
+		height: 35px
+		width: 35px
+		overflow: hidden
+		border-radius: 50%
+		position: absolute
+		top: -5px
+		right: -30px
+		input
+			width: 50px
+			height: 50px
+			margin-top: -7px
+			margin-left: -7px
+			cursor: pointer
+
+.logo_completo
+	justify-content: center
+	padding: 10px 0px
+.contenedor_archivos
+	justify-content: space-around
+	padding: 5px
+	.archivo
+		width: 32%
+		text-align: center
+		margin: auto
+		padding: 5px
+		box-sizing: border-box
+		@media (max-width: $tablet)
+			width: 49%
+		@media (max-width: $mobil)
+			width: 90%
+		a
+			i
+				display: block
+				width: 100px
+				height: 100px
+				border-radius: 50%
+				color: $color_text_uno
+				border: 3px solid $color_text_uno
+				padding: 20px
+				margin: auto
+
+.contenedor_principal
+	background: $color_fond_dos
+	width: 100%
+	box-sizing: border-box
+	position: relative
+
+.contenedor_general
+	width: 100%
+	height: auto
+	background-color: $color_fond_dos
+	.titulo
+		text-align: center
+//COMPARTIR PAGINA
+.compartir_pagina
+	width: 100%
+	padding: 10px 0px
+	display: flex
+	justify-content: flex-end
+			
+//SCROLL*/
+::-webkit-scrollbar
+	width: 8px
+
+::-webkit-scrollbar-track
+	background-color: rgba(211, 211, 211, 0.3)
+ 
+::-webkit-scrollbar-thumb
+	background-color: rgba($color_prin, 0.5)
+	border-radius: 5px
+ 
+::-webkit-scrollbar-button
+	background-color: rgba(211, 211, 211, 0.8)
+
+::-webkit-scrollbar-corner
+	background-color: rgba(211, 211, 211, 0.3)
+//CONTENEDOR COMPAÑIA
+.cont-company
+	width: 49%
+	border-radius: 15px
+	overflow: hidden
+	box-shadow: 0px 0px 2px rgba($color_terc,.5)
+	position: relative
+	margin-bottom: 10px
+	background: $color_secu
+	@media (max-width: $tablet)
+		width: 100%
+	.comp-port
+		width: 100%
+		height: 150px
+		overflow: hidden
+		position: relative
+		img
+			width: 100%
+			object-fit: cover
+	.comp-port:after
+		content: " "
+		display: block
+		left: 0px
+		top: 0px
+		position: absolute
+		width: 100%
+		height: 100%
+		background: linear-gradient(180deg, transparent,transparent,rgba($color_secu,1)) 
+	.comp-perf
+		width: 90px
+		height: 90px
+		position: absolute
+		top: 20px
+		left: 50%
+		transform: translateX(-50%)
+		border-radius: 50%
+		overflow: hidden
+		display: flex
+		align-items: center
+		border: 2px solid $color_prin
+		background: rgba($color_secu,.8)
+		img
+			width: 100%
+			object-fit: cover
+	.comp-titu
+		position: absolute
+		width: 100%
+		top: 110px
+		left: 0px
+		text-align: center
+		h5 
+			text-shadow: 0px 0px 1px #fff
+			margin: 0px
+	.comp-info
+		padding: 5px
+		text-align: center
+		font-size: 12px
+
+.comp-perf
+		width: 50px
+		height: 50px
+		border-radius: 50%
+		overflow: hidden
+		display: flex
+		align-items: center
+		border: 2px solid $color_prin
+		background: rgba($color_secu,.8)
+		img
+			width: 100%
+			object-fit: cover
+//VIDEO YOUTUBE
+.video_youtube
+	height: 0px
+	padding-bottom: 56.25%
+	position: relative
+	iframe
+		position: absolute
+		top: 0px
+		left: 0px
+		width: 100%
+		height: 100%
+//VISOR
+.contenedor_visor
+	top: 50px
+	width: 70%
+	height: 180vh
+	margin: auto
+	position: relative
+	.visor_cliente
+		height: 100%
+		width: 100%
+		padding-bottom: 56.25%
+		position: relative
+		iframe
+			position: absolute
+			top: 0px
+			left: 0px
+			width: 100%
+			height: 100%
+	&:after
+		content: ""
+		display: block
+		width: 100%
+		height: 100%
+		background-color: red
+
+//TITULOS*/
+.titulo 
+	padding: 0px
+	padding-bottom: 3px
+.titulo_mayus
+	text-transform: uppercase
+.titulo_prin
+	color: $color_titu_uno
+.titulo_secu
+	color: $color_titu_dos
+.titulo_terc
+	color: $color_titu_tre
+	
+.titulo_uno
+	font-size: 10px	
+.titulo_dos
+	font-size: 15px
+.titulo_tres
+	font-size: 20px
+.titulo_cuat
+	font-size: 25px
+.titulo_cinc
+	font-size: 30px
+.titulo_seis
+	font-size: 35px
+.titulo_siet
+	font-size: 40px
+.titulo_ocho
+	font-size: 45px
+.titulo_nuev
+	font-size: 50px
+	@media (max-width: $tablet)
+		font-size: 30px
+.titulo_diez
+	font-size: 60px
+	@media (max-width: $tablet)
+		font-size: 50px
+	@media (max-width: $mobil)
+		font-size: 40px
+/*BOTONES*/
+.boton
+	//margin: 5px auto
+	border-radius: 50px
+	text-decoration: none
+	cursor: pointer
+	transition: all .5s
+	opacity: 1
+	padding: 0.25em 2em
+	border: 1px solid transparent
+	&:hover
+		transform: scale(1.05)
+.boton_prin
+	background: $color_boto_uno
+	color: $color_text_dos
+	&:hover
+		background-color: $color_secu
+		color: $color_prin
+		border-color: $color_prin
+.boton_secu
+	background: $color_boto_dos
+	color: $color_text_tre
+	&:hover
+		background-color: rgba($color_prin, 0.5)
+		color: $color_secu
+		border-color: $color_secu
+.boton_terc
+	background: $color_boto_tre
+	color: $color_text_tre
+	background: $color_prin
+	color: $color_secu
+	&:hover
+		background-color: $color_secu
+		color: $color_prin
+.boton_dos
+	background: transparent
+	color: $color_secu
+	border-color: $color_secu
+	width: 70%
+	text-align: center
+	span
+		float: left
+	&:hover
+		background-color: $color_secu
+		border-color: transparent
+.boton_tres
+	background: $color_secu
+	color: $color_prin
+	width: 70%
+	text-align: center
+	span
+		float: left
+	&:hover
+		background-color: rgba($color_prin, 0.5)
+		color: $color_secu
+		border-color: $color_secu
+
+.btn-file
+	display: none
+	+ label
+		position: relative
+.cotizar
+	width: 100%
+	height: auto
+	position: relative
+	.boton_cotizar
+		padding: 25px 15px
+		background-color: $color_prin
+		text-decoration: none
+		text-align: left
+		font-size: 50px
+		color: $color_text_dos
+		float: right
+		transition: all 1s
+		border-radius: 50px 0px 0px 50px
+		span
+			font-size: 50px
+			margin-left: 15px
+		&:hover
+			font-size: 48px
+			span
+				font-size: 48px
+	
+/*CAJAS DE TEXTO*/
+.caja
+	padding: 0.3em 1em
+	line-height: normal !important
+	margin: auto
+	box-sizing: border-box
+	margin: 5px 0px
+	border-radius: 50px
+	background: rgba($color_secu,0.7)
+	border: 0px
+	//text-align: center
+	box-shadow: 0px 0px 3px rgba($color_terc,.7)
+.panel_usuario
+	& .caja
+		background: transparent
+		//border: 1px solid $color_terc
+.caja-border
+	border: 1px solid $color_terc
+.caja_uno
+	width: 10%
+.caja_dos
+	width: 20%
+.caja_dosm
+	width: 24%
+.caja_tres
+	width: 30%
+.caja_cuat
+	width: 38%
+.caja_cinc
+	width: 49%
+.caja_seis
+	width: 60%
+.caja_siet
+	width: 69%
+.caja_ocho
+	width: 80%
+.caja_nuev
+	width: 90%
+.caja_diez
+	width: 97%
+
+/*LINKS*/
+.link
+	text-decoration: none
+	cursor: pointer
+	transition: all 0.5s
+	border: 0px
+	background-color: transparent
+.link_prin
+	color: $color_text_uno
+.link_secu
+	color: $color_text_dos
+.link_terc
+	color: $color_text_tre
+.link_uno
+	&:hover
+		color: rgba($color_text_uno,0.8)
+.link_dos
+	&:hover
+		color: rgba($color_text_dos,0.9)
+
+.link_tres
+	&:hover
+		color: rgba($color_text_tre,0.8)
+
+
+		
+.btn-sesion
+	display: flex
+	cursor: pointer
+	position: relative
+	height: 35px
+	align-items: center
+	border-radius: 50px
+	text-decoration: none
+	border: 0px
+	padding: 0px 10px
+	transition: all 1s
+	margin-right: 3px
+	background: $color_prin
+	color: $color_secu
+	@media (max-width: $tablet)
+		padding: 0px 10px
+	&:focus .form-sesion
+		transition: all 1s
+		height: auto
+		top: 35px
+		overflow: initial
+		background-color: rgba($color_terc,.7)
+	&:focus
+		border-radius: 15px 15px 0px 0px
+		background-color: rgba($color_terc,.7)
+	
+
+.form-sesion
+	position: absolute
+	width: 300px
+	left: 0px
+	top: 15px
+	height: 0px
+	transition: all 1s
+	overflow: hidden
+	background-color: rgba($color_terc,.0)
+	z-index: 0
+	@media (max-width: $netbook)
+		left: initial
+		right: 0px
+		border-radius: 10px 0px 10px 10px
+	&:hover
+		transition: all 1s
+		height: auto
+		top: 35px
+		background-color: rgba($color_terc,.7)
+	.contenedor_sesion
+		position: relative
+
+.sesion_nombre
+	display: block
+	@media (max-width: $tablet)
+		display: none
+
+
+#view_panel
+	display: none
+	+ label
+		display: block
+		padding: 18px
+		font-size: 20px
+		transition: all 1s
+		color: $color_terc
+		position: fixed
+		left: 145px
+		bottom: 0px
+		cursor: pointer
+		z-index: 10
+		@media (max-width: $tablet)
+			display: none
+	&:checked + label
+		left: 0px
+	&:checked ~ .panel-left
+		width: 55px
+		span
+			font-size: 20px
+			float: right
+		.item-text
+			transition: all 1s
+			opacity: 0
+			height: 30px
+		.cont-comp
+			padding: 5px 
+			.comp-log
+				padding: 0px 5px
+				width: auto
+				height: 40px
+				img
+					width: auto
+					height: 100% !important
+			.comp-inf
+				.comp-img
+					width: 45px
+					height: 45px
+				.comp-tex
+					display: none
+	&:checked ~ .panel-right
+		width: calc(100vw - 55px)
+
+/*ICONOS*/
+.icono_uno
+	font-size: 18px !important
+	position: absolute
+	display: block
+	left: 0px
+	color: $color_secu
+	top: 0px
+	padding: 8px
+	width: 20px
+	height: 20px
+	border-radius: 50%
+.icono_dos
+	padding: 0px 5px
+	font-size: 25px !important
+	//position: absolute
+	//top: 0px
+	//left: -3px
+	//@media (max-width: $desktop)
+		//position: relative
+		//font-size: 23px !important
+		//float: left
+.icono_tres
+	position: relative
+	font-size: 100px
+	color: $color_secu
+.icono_cuatro
+	font-size: 90px !important
+	padding: 10px
+	color: $color_prin 
+
+/*ALERTAS*/
+.alert
+	position: fixed
+	width: 30vw
+	height: 70px
+	overflow: hidden
+	bottom: 5px
+	padding: 3px !important
+	left: -100%
+	display: flex
+	align-items: center
+	z-index: 3000
+	border-radius: 0px 50px 50px 0px
+	background-color: rgba($color_fond_tre,0.9)
+	box-sizing: border-box
+	animation: desaparecer 10s
+	@media (max-width: $desktop)
+		width: 35vw
+	@media (max-width: $netbook)
+		width: 40vw
+	@media (max-width: $laptop)
+		width: 50vw
+	@media (max-width: $tablet)
+		width: 80vw
+	@media (max-width: $mobil)
+		width: 100vw
+
+.alert-conten
+	line-height: 1em
+	box-sizing: border-box
+	display: flex
+	justify-content: space-between
+	align-items: center
+	width: 100%
+	overflow: hidden
+
+.alert-conten span
+	font-size: 30px
+
+.alert-conten p
+	padding: 5px 10px	
+	margin: 0px
+	font-size: 15px
+	height: auto
+	display: block
+	overflow: hidden
+	box-sizing: border-box
+
+.alert-pos
+	color: #2EE910
+
+.alert-pos:after
+	content: ""
+	width: 5px
+	position: absolute
+	left: 0px
+	top: 0px
+	height: 100%
+	background-color: #2EE910
+
+.alert-neg
+	color:  #E91010
+
+.alert-neg:after
+	content: ""
+	width: 5px
+	position: absolute
+	left: 0px
+	top: 0px
+	height: 100%
+	background-color: #E91010
+
+.alert-close
+	float: right
+
+.alert-close:focus .alert-pos 
+	display: none
+
+.alert-close:focus .alert-neg 
+	display: none
+/*PRELOADER*/
+.cont-pre-loader
+	position: fixed
+	left: 200px
+	width: calc(100vw - 200px)
+	height: 100vh
+	background: rgba(255, 255, 255, .8)
+	z-index: 2000
+	@media (max-width: $tablet)
+		width: 100%
+		left: 0px
+.pre-loader
+	position: absolute
+	left: 50%
+	top: 50%
+	span
+		height: 1em
+		width: 1em
+		background: $color_prin
+		display: block
+		position: absolute
+		left: 0
+		top: 0
+		border-radius: 50%
+		animation: wave 2s ease-in-out infinite
+		&:nth-child(1)
+			left: -3em
+			animation-delay: 0s
+		&:nth-child(2)
+			left: -1em
+			animation-delay: 0.1s
+		&:nth-child(3)
+			left: 1em
+			animation-delay: 0.2s
+		&:nth-child(4)
+			left: 3em
+			animation-delay: 0.3s
+
+@keyframes wave
+	0%,75%,100%
+		transform: translateY(0) scale(1)
+	25%
+		transform: translateY(2.5em)
+	50%
+		transform: translateY(-2.5em) scale(1.1)
+	
+/*ARTICULOS*/
+.contenedor_articulos
+	max-height: 100%
+	overflow-y: auto
+	padding-right: 15px
+	@media (max-width: $tablet)
+		max-height: none
+		padding-right: 0px
+		overflow-y: hidden
+.boton_mgta
+	position: absolute 
+	top: -8px 
+	right: 0px
+	text-decoration: none
+	font-size: 20px
+	color: $color_prin
+	padding: 10px
+.articulo
+	width: 100%
+	height: auto
+	padding: 10px
+	box-sizing: border-box
+	position: relative
+	border-radius: 10px
+	border: 1px solid rgba($color_terc, 0.1)
+	background-color: $color_secu
+	box-shadow: 0px 1px 2px rgba($color_terc, 0.2) 
+	margin-bottom: 10px	
+	@media (max-width: $tablet)
+		margin-right: 0px
+	.articulo_compartir
+		position: absolute
+		right: 0px
+		top: 0px
+		height: 40px
+		overflow: hidden
+		width: auto
+		text-align: center
+		z-index: 2
+		a
+			text-decoration: none
+		span
+			font-size: 20px
+			color: $color_prin
+			padding: 10px
+		@media (max-width: $mobil)
+			position: relative
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-around
+			top: 0px
+			right: 0px
+.articulo_view
+	width: 100%
+	height: auto
+	background: red
+	padding: 15px
+	overflow: hidden
+	box-sizing: border-box
+	position: relative
+	background-color: $color_secu
+	.articulo_video
+		width: 80%
+		margin: auto
+		box-sizing: border-box
+		height: auto
+		overflow: hidden
+	.articulo_text
+		width: 100%
+		text-align: justify
+	.articulo_img
+		width: 50%
+		float: left
+		padding: 10px 10px 10px 0px
+		box-sizing: border-box
+		text-align: center
+		@media (max-width: $tablet)
+			float: none
+			width: 100%
+		img
+			max-width: 100%
+			height: auto
+.articulo_social
+	padding: 10px 0px
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+	box-sizing: border-box
+	position: relative
+	width: 100%
+	.articulo-date,.articulo_comparte
+		display: flex
+		align-items: center
+	.articulo_comparte
+		width: auto
+		@media (max-width: $tablet)
+			width: 100%
+			padding: 10px
+			box-sizing: border-box
+			display: flex
+			justify-content: space-around
+		.btn-circle
+			margin-left: 5px
+.btn-fb
+	background: #3b5998
+.btn-wt
+	background: #25D366
+.btn-tw
+	background: #1da1f2
+.btn-color-dc
+	background: $color_prin
+.btn-size-uno		
+	height: 25px
+	width: 25px
+	font-size: 12px
+.btn-size-dos		
+	height: 30px
+	width: 30px
+	font-size: 15px
+.btn-circle,.paginate_button
+	cursor: pointer
+	color: $color_secu
+	display: inline-flex
+	justify-content: center
+	align-items: center
+	border-radius: 50%
+	position: relative
+	&:hover
+		opacity: .8
+	.btn-circle-o
+		font-size: 70%
+		display: flex
+		justify-content: center
+		align-items: center
+		background: $color_secu
+		color: $color_prin
+		border: 1px solid $color_prin
+		height: 50%
+		width: 50%
+		bottom: -15%
+		right: -15%
+		border-radius: 50%
+		position: absolute
+
+.articulo_persona
+	padding: 15px
+	border: 1px solid rgba($color_terc, 0.1)
+	background-color: $color_secu
+	box-shadow: 0px 1px 2px rgba($color_terc, 0.2)
+	box-sizing: border-box
+	width: 100%
+	display: flex
+	flex-wrap: wrap
+	.div-autor
+		width: 100%
+		box-sizing: border-box
+		@media (max-width: $netbook)
+			width: 50%
+		@media (max-width: $mobil)
+			width: 100%
+		.articulo_imagen
+			width: 150px
+			height: 150px
+			margin: auto
+			border-radius: 50%
+			overflow: hidden
+			border: 1px solid $color_prin
+			img
+				height: 100%
+				width: 100%
+				object-fit: cover
+		.articulo_autor
+			width: 100% 
+			box-sizing: border-box
+			text-align: center
+	.div-public
+		width: 100%
+		box-sizing: border-box
+		@media (max-width: $netbook)
+			width: 50%
+		@media (max-width: $mobil)
+			width: 100%
+		.articulo_public
+			list-style-color: $color_prin
+			margin-left: 20px
+			li
+				margin-bottom: 10px
+				a
+					text-decoration: none
+					color: $color_terc
+					&:hover
+						color: $color_prin
+.panel_right
+	& .articulo
+		margin-left: 10px
+		margin-right: 10px
+		@media (max-width: $tablet)
+			margin-left: 0px
+			margin-right: 0px
+.articulo_usuario
+	display: flex
+	flex-wrap: wrap
+	.articulo_imagen
+		width: 50px
+		height: 50px
+		border-radius: 50%
+		overflow: hidden
+		border: 1px solid $color_prin
+		img
+			height: 100%
+			width: 100%
+			object-fit: cover
+	.articulo_autor
+		box-sizing: border-box
+		padding-left: 15px
+		position: relative
+.articulo_texto
+	width: 100%
+	box-sizing: border-box
+	@media (max-width: $mobil)
+		padding: 0px
+.autor_imagen
+	width: 50px
+	height: 50px
+	border-radius: 50%
+	overflow: hidden
+	border: 1px solid $color_prin
+	img
+		height: 100%
+		width: 100%
+		object-fit: cover
+/*PORTADAS*/
+.portada
+	width: 100%
+	height: 50vh
+	background-size: cover
+	background-position: center
+	background-repeat: no-repeat
+	background-attachment: fixed
+.contenedor_portada
+	width: 100%
+	height: 100%
+	position: relative
+	background: linear-gradient(180deg, rgba($color_secu,.9),rgba($color_secu,.8),rgba($color_secu,.8),transparent) 
+	.portada_text
+		width: 100%
+		height: auto
+		margin: auto
+		text-align: center
+		position: absolute
+		top: 50%
+		transform: translateY(-50%)
+		p
+			display: block
+			width: 70%
+			color: $color_text_uno
+			margin: auto
+			@media (max-width: $mobil)
+				width: 95%
+.portada_contacto
+	background-image: url("../img/contenido/macbook-577758_1920.jpg")
+.portada_blog
+	background-image: url("../img/contenido/analogue-2846297_1920.jpg")
+.portada_usuario
+	height: 40vh !important
+	background-image: url("../img/contenido/arm-1867759_1920.jpg")
+	@media (max-width: $tablet)
+		h3
+			font-size: 20px !important
+.portada_nosotros
+	background-image: url("../img/contenido/action-2277292_1920.jpg")
+
+/*IMAGENES*/
+.cont-img-per
+	border: 2px solid
+	border-radius: 50%
+	overflow: hidden
+	position: relative
+	text-align: center
+	background: rgba($color_secu,.8)
+	img
+		width: 100%
+		height: 100%
+		object-fit: cover
+	.icon-per
+		position: absolute
+		width: 100%
+		top: 50%
+		transform: translateY(-50%)
+		text-align: center
+		span
+			font-size: 80px
+			color: $color_prin
+.cont-img-por
+	width: 100%
+	border-radius: 14px 14px 0px 0px
+	overflow: hidden
+	img
+		width: 100%
+.heig-uno
+	height: 10px
+.heig-dos
+	height: 20px
+.heig-tre
+	height: 30px
+.heig-cua
+	height: 40px
+.heig-cin
+	height: 50px
+.heig-sei
+	height: 60px
+.heig-sie
+	height: 70px
+.heig-och
+	height: 80px
+.heig-nue
+	height: 90px
+.heig-die
+	height: 100px
+.heig-onc
+	height: 110px
+.heig-doc
+	height: 120px
+.heig-trc
+	height: 130px
+.heig-cac
+	height: 140px
+.heig-quc
+	height: 150px
+.cuad-uno
+	width: 10px
+	height: 10px
+.cuad-dos
+	width: 20px
+	height: 20px
+.cuad-tre
+	width: 30px
+	height: 30px
+.cuad-cua
+	width: 40px
+	height: 40px
+.cuad-cin
+	width: 50px
+	height: 50px
+.cuad-sei
+	width: 60px
+	height: 60px
+.cuad-sie
+	width: 70px
+	height: 70px
+.cuad-och
+	width: 80px
+	height: 80px
+.cuad-nue
+	width: 90px
+	height: 90px
+.cuad-die
+	width: 100px
+	height: 100px
+.cuad-onc
+	width: 110px
+	height: 110px
+.cuad-doc
+	width: 120px
+	height: 120px
+.usuario_perfil
+	width: 180px
+	height: 180px
+	border: 2px solid
+	border-radius: 50%
+	overflow: hidden
+	position: relative
+	text-align: center
+	img
+		width: 100%
+		height: 100%
+		object-fit: cover
+	span
+		font-size: 180px
+		color: $color_prin
+
+.img-pre
+	width: 100%
+	height: 100%
+	object-fit: cover
+
+.previw_img
+	img
+		max-width: 100%
+		max-height: 300px
+/*SECCIONES*/
+.seccion_uno
+	background-color: $color_secu
+	box-sizing: border-box
+	height: auto
+	width: 100%
+	.seccion_left
+		width: 40%
+		@media (max-width: $netbook)
+			width: 50%
+		@media (max-width: $tablet)
+			width: 100%
+	.seccion_right
+		width: 60%
+		@media (max-width: $netbook)
+			width: 50%
+		@media (max-width: $tablet)
+			width: 100%
+.seccion_dos
+	background-color: $color_prin
+	color: $color_text_dos
+	box-sizing: border-box
+	height: auto
+	width: 100%
+	.seccion_left
+		width: 60%
+		@media (max-width: $netbook)
+			width: 50%
+		@media (max-width: $tablet)
+			width: 100%
+	.seccion_right
+		width: 40%
+		@media (max-width: $netbook)
+			width: 50%
+		@media (max-width: $tablet)
+			width: 100%
+.seccion_tres
+	background-color: $color_secu
+	box-sizing: border-box
+	width: 100%
+	.seccion_left
+		width: 70%
+		@media (max-width: $netbook)
+			width: 100%
+	.seccion_right
+		width: 30%
+		@media (max-width: $netbook)
+			width: 100%
+.seccion_cuat
+	background-color: $color_secu
+	padding: 25px 15px
+	box-sizing: border-box
+	width: 100%
+	@media (max-width: $tablet)
+			padding: 0px
+	.seccion_left
+		width: 75%
+		@media (max-width: $netbook)
+			width: 100%
+	.seccion_right
+		width: 25%
+		@media (max-width: $netbook)
+			width: 100%
+
+.seccion_texto
+	width: 100%
+	padding: 25px
+	box-sizing: border-box
+	text-align: justify
+	@media (max-width: $tablet)
+		padding: 10px
+.seccion-articulos
+	width: 100%
+	text-align: justify
+	padding: 25px
+	box-sizing: border-box
+	@media (max-width: $tablet)
+		padding: 10px
+	@media (max-width: $mobil)
+		padding: 0px
+		.titulo
+			padding-left: 10px
+.seccion_multimedia
+	width: 100%
+	height: auto
+	margin: auto
+	padding: 25px
+	transition: all 1s
+	box-sizing: border-box
+	img
+		width: 100%
+		height: auto
+
+/*MENU PRINCIPAL*/
+.menu-principal
+	position: fixed
+	color: $color_secu
+	width: 100%
+	height: 80px
+	top: 0px
+	left: 0px
+	z-index: 200
+	display: none !important
+	justify-content: center
+	text-align: center
+	align-items: center
+	transition: all 1.5s
+	box-sizing: border-box
+	@media (max-width: $netbook)
+		justify-content: space-between
+	@media (max-width: $tablet)
+		display: flex !important
+	ul
+		text-decoration: none
+		list-style: none
+		color: $color_prin
+		display: flex
+		text-align: center
+		box-sizing: border-box
+		width: auto
+		height: 100%
+		margin: 0px
+		position: relative
+		transition: all 1s
+		@media (max-width: $netbook)
+			position: fixed
+			left: -100%
+			top: 0px
+			display: block
+			transform: translateX(0px)
+			background-color: rgba($color_secu, 0.95)
+			height: 100vh
+			//box-shadow: 0px 1px 2px rgba($color_text_uno, 0.2)
+			width: 350px	
+		@media (max-width: $mobil)
+			width: 50%
+		ul
+			opacity: 0
+			display: none
+			ul
+				left: 100%
+				top: 0px
+				@media (max-width: $laptop)
+					left: 0px
+			li
+				height: 44px
+		li
+			position: relative
+			box-sizing: border-box
+			@media (max-width: $laptop)
+				display: block
+				width: 100%	
+			a
+				height: 100%
+				display: flex
+				align-items: center
+				color: $color_text_uno
+				padding: 0px 2em 
+				text-decoration: none
+				transition: 1s
+				box-sizing: border-box
+				@media (max-width: $laptop)
+					width: 100%
+					line-height: 3em
+					border-bottom: 1px solid transparent
+				&:hover
+					color: $color_prin
+					-moz-transition: 1.5s
+					-o-transition: 1.5s
+					-webkit-transition: 1.5s
+					transition: all 1.5s
+					border-bottom: 1px solid rgba($color_prin, 0.8)
+			&:hover > ul
+				transition: all 1.5s
+				display: block
+				opacity: 1
+				position: absolute
+			&:hover ul
+				@media (max-width: $laptop)
+					display: none
+					position: static
+			ul
+				transition: all 1.5s
+				@media (max-width: $laptop)
+					width: 100%
+					height: auto !important
+	li
+		li
+			background-color: rgba($color_text_uno, 0.8)
+			transition: all 1.5s
+			-webkit-transition: all 1.5s
+			margin-left: 0%
+			width: 380px
+			@media (max-width: $laptop)
+				margin-left: 0px
+				width: 100%
+			a
+				color: $color_text_dos
+				@media (max-width: $laptop)
+					width: 100%
+			li
+				background-color: rgba($color_text_uno, 0.7)
+				a
+					color: $color_text_dos
+
+.btn-bar-mob
+	position: relative
+	height: 44px
+	width: 44px
+	transition: all 1.5s
+	-webkit-transition: all 1.5s
+	display: none
+	cursor: pointer
+	z-index: 1000
+	.btn-bar
+		position: relative
+		width: 22px
+		height: $btn-bar-mob
+		display: flex
+		margin: 9px auto
+		flex-direction: row
+		align-items: center
+		justify-content: center
+		.btn-bar-for
+			width: 100%
+			height: 14%
+			border-radius: 3px 3px
+			position: absolute
+			background-color: rgba($color_terc,.3)
+			box-shadow: 0px 0px 1px rgba($color_terc,0.3)
+			transition: 1s						
+			&:before
+				top: -170%
+				border-radius: 3px 3px
+				background-color: rgba($color_terc,.3)
+				left: 0px
+			&:after
+				top: 170%
+				border-radius: 3px 3px
+				background-color: rgba($color_terc,.3)
+				left: 0px
+		
+	@media (max-width: $netbook)
+		display: block
+.espacio_mobil
+	display: none
+	height: 50px
+	@media (max-width: $laptop)
+		display: block
+.view-menu
+	left: 0px !important
+	overflow-y: auto
+	li
+		.btn-bar-mob
+			.btn-bar
+				right: 15px
+
+.btn-bar-for:after, .btn-bar-for:before
+	content: ""	
+	position: absolute
+	background-color: $color_prin
+	width: 100%
+	height: 100%
+	box-shadow: 0px 0px 1px rgba($color_text_uno,0.2)
+	transition: 1s
+
+.cerrar
+	transition: 1s
+	transform: rotateZ(45deg)
+	@media (max-width: $tablet)
+				background-color: $color_text_uno
+	&:before
+		transition: 1s
+		top:  0px !important
+		transform: rotateZ(90deg)
+		@media (max-width: $tablet)
+				background-color: $color_text_uno !important
+	&:after
+		transition: 1s
+		top: 0px !important
+		transform: rotateZ(0deg)
+		@media (max-width: $tablet)
+				background-color: $color_text_uno !important
+
+.aside_fixed
+	position: fixed
+	top: 70px
+	right: 15px
+	width: calc(25% - 5px)
+	box-sizing: border-box
+	z-index: 0
+	@media (max-width: $netbook)
+		position: relative
+		top: 0px
+		right: 0px
+		width: 100%
+.menu-fixed
+	height: 44px
+	background-color: rgba($color_secu,0.9)
+	box-shadow: 0px 0px 2px rgba($color_text_uno, 0.3)
+	@media (max-width: $tablet)
+		border-radius: 10px
+		margin: 5px
+		width: calc(100% - 10px)
+		box-sizing: border-box
+		.btn-sesion
+			background: transparent
+			color: rgba($color_terc,.3)
+	ul li a
+		line-height: 3em
+		@media (max-width: $laptop)
+			line-height: 3em
+		ul .submenu-prin li a
+			color: #fff !important
+	.logo_fixed
+		color: $color_text_uno
+		.logo_dos
+			height: 35px !important
+			width: 35px !important
+	.btn-bar-mob
+		top: 0px
+		left: 0px
+	
+		
+.logo_mobil
+	@media (max-width: $netbook)
+		left: 50% !important
+		transform: translateX(-50%)
+		float: none
+
+.usuario_img
+	width: 25px
+	height: 25px
+	position: relative
+	margin-right: 5px
+	overflow: hidden
+	border-radius: 50%
+	box-shadow: 0px 0px 2px rgba($color_terc,.5)
+	border: 1px solid $color_text_dos
+	img
+		height: 100%
+		width: 100%
+		object-fit: cover
+.icono_sesion
+	margin: 0px 0px 0px 5px
+/*FLECHA SUBIR*/
+.flecha-subir
+	display: none
+	position: fixed
+	right: 10px
+	bottom: 10px
+	width: 35px
+	padding: 5px
+	overflow: hidden
+	height: 35px
+	border-radius: 50%
+	transition: all 1s
+	color: $color_text_dos
+	background-color: rgba($color_prin, 0.7)
+	text-align: center
+	cursor: pointer
+	z-index: 100
+	@media (max-width: $tablet)
+		width: 35px
+		height: 35px
+		padding: 3px
+
+.flecha-subir span
+	font-size: 30px
+	@media (max-width: $tablet)
+		font-size: 30px
+
+.flecha-subir:hover
+	background-color: rgba($color_secu, 0.5)
+	border: 1px solid $color_prin
+	color: $color_text_tre
+
+.nav-tabs,.tab-pane,.tab-content
+	width: 100% !important
+
+
+/*CONTACTO*/
+.contenedor_contacto
+	position: relative
+	display: flex
+	overflow: hidden
+	width: 100%
+	background-image: url("../img/contenido/navigation-1048294_1920.jpg")
+	background-repeat: no-repeat
+	background-position: center
+	background-attachment: fixed
+	background-size: cover 
+	height: 80vh
+	min-height: 500px
+	transition: all 1s
+	@media (max-width: $netbook)
+		min-height: auto
+		height: auto
+		display: block
+	.contenedor_left
+		position: absolute
+		width: 70%
+		height: 100%
+		left: 0%
+		transition: all 1s
+		@media (max-width: $netbook)
+			position: relative
+			height: 300px
+			width: 100%
+	.contenedor_right
+		position: absolute
+		height: 100%
+		width: 60%
+		right: -30%
+		background-color: rgba($color_prin, 0.9)
+		color: $color_secu
+		box-sizing: border-box
+		transition: all 1s
+		@media (max-width: $netbook)
+			position: relative
+			height: auto
+			width: 100%
+			right: 0px
+.detalles_contacto
+	position: relative
+	width: 100%
+	height: 100%
+	display: flex		
+	@media (max-width: $tablet)
+		display: block
+		height: auto
+	.contacto_izqui
+		position: relative
+		width: 50%
+		transition: all 1s
+		@media (max-width: $netbook)
+			width: 100%
+		.icono_perfil
+			text-align: center
+			span
+				font-size: 80px
+		ul
+			position: absolute
+			list-style: none
+			width: 100%
+			box-sizing: border-box
+			margin: auto
+			padding: 15px 25px
+			top: 50%
+			transform: translateY(-50%)
+			@media (max-width: $tablet)
+				position: relative
+				top: 0px
+				transform: translateY(0%)
+		li
+			padding: 10px
+	.contacto_derec
+		padding: 20px 15px
+		text-align: center
+		position: relative
+		width: 50%
+		box-sizing: border-box
+		transition: all 1s
+		@media (max-width: $netbook)
+			width: 100%
+		.contacto_form
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			padding: 10px
+			box-sizing: border-box
+			@media (max-width: $netbook)
+				position: relative
+				top: 0px
+				transform: translateY(0%)
+#vform_contacto
+	display: none
+	+ label
+		display: block
+		cursor: pointer
+		padding: 0.5em 2em
+		margin: 10px 0px
+		border-radius: 50px
+		text-decoration: none
+		border: 0px
+		position: absolute
+		right: 15%
+		transform: translateX(50%)
+		bottom: 10%
+		z-index: 20
+		animation: opa 3s
+		transition: all 1s
+		background: $color_secu
+		color: $color_prin
+		@media (max-width: $netbook)
+			display: none
+	&:checked ~ .contenedor_left
+		left: -30%
+	&:checked ~ .contenedor_right
+		right: 0%
+	&:checked + label
+		display: none
+	&:checked ~ #oform_contacto + label
+		display: block
+		animation: opa 3s
+	
+#oform_contacto
+	display: none
+	+ label
+		cursor: pointer
+		padding: 0px
+		margin: 10px 0px
+		border-radius: 50px
+		text-decoration: none
+		border: 0px
+		position: absolute
+		right: 15px
+		transition: all 1s
+		font-size: 25px 
+		color: $color_secu
+		@media (max-width: $netbook)
+			display: none
+
+/*SLIDER PRINCIPAL*/
+.slider_inicio
+	width: 100%
+	height: 100%
+	overflow: hidden
+	position: relative
+	ol, ul
+		list-style: none
+
+.slider_principal
+	width: 100%
+	overflow: hidden
+	box-sizing: border-box
+	li
+		width: 100vw
+		height: auto
+		overflow: hidden
+	.caption
+		position: absolute
+		width: 100%
+		height: 100vh
+		left: 0px
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		text-align: center
+		padding: 15px 50px
+		box-sizing: border-box
+
+.paginacion
+	position: absolute
+	top: calc(100vh - 40px)
+	display: flex
+	width: 100%
+	justify-content: center
+	z-index: 2
+	li
+		font-size: 20px
+		margin: 2px 5px
+		color: rgba(211,211,211,.8)
+		cursor: pointer
+
+.left, .right
+	position: absolute
+	top: 0px
+	height: 100%
+	line-height: 3
+	display: flex
+	align-items: center
+	font-size: 45px
+	text-align: center
+	color: rgba($color_text_uno,.7)
+	z-index: 1
+	cursor: pointer
+	//animation: flechas  2s infinite 
+
+
+.left
+	left: 10px
+
+.right
+	right: 10px
+
+.slider_imagen
+	width: 50%
+	height: auto
+	position: relative
+	right: 25%
+	transform: translateX(50%)
+	animation: mover_img_slider 2s
+	@media (max-width: $tablet)
+		display: none
+
+.slider_imagen img
+	width: 100%
+
+.contenedor_header
+	width: 100%
+	position: relative
+	height: 100vh
+	overflow: hidden
+
+.header_titulo
+	position: absolute
+	left: 0
+	width: 100%
+	height: 100vh
+	background: linear-gradient( 90deg, rgba($color_secu,1), rgba($color_secu,0.9), transparent)
+		
+.header_descrip
+	position: absolute
+	width: 50%
+	padding: 15px
+	margin: auto
+	text-align: left
+	height: 100%
+	left: 0px
+	color: $color_text_dos
+	box-sizing: border-box
+	@media (max-width: $tablet)
+		width: 90%
+		left: 50%
+		transform: translateX(-50%)
+
+.header_detalles
+	position: absolute
+	top: 45%
+	width: 100%
+	box-sizing: border-box
+	padding: 15px 30px
+	transition: all 1s
+	transform: translateY(-50%)
+	animation: opacidad 2s
+	h1
+		font-size: 500%
+		text-transform: uppercase
+		color: $color_titu_uno
+		@media (max-height: $horizontal)
+			font-size: 40px
+		@media (max-width: $tablet)
+			font-size: 50px
+		@media (max-width: $mobil)
+			font-size: 40px
+	p
+		color: $color_text_uno
+
+.header_detalles .icono_uno
+	font-size: 80px
+	padding: 10px
+	animation: opacidad 2s
+	color: $color_titu_uno
+
+.header_logo
+	position: absolute
+	width: 200px
+	height: 50px
+	color: $color_titu_uno
+	right: 50%
+	animation: mover 1s
+	top: 13vh
+	transform: translateX(50%)
+	.logo_dos
+		@media (max-width: $laptop)
+			display: none
+
+.header_logo h2
+	padding: 12px 0px
+
+
+
+/*CLIENTES*/
+.clientes
+	width: 100%
+	display: flex
+	flex-wrap: wrap
+	padding: 40px 0px
+.cliente_titulo
+	width: 80%
+	text-align: center
+	margin: auto
+	@media (max-width: $netbook)
+			width: 80%
+.clientes-cinc
+	width: 50%
+	display: flex
+	justify-content: space-between
+	align-self: start
+	flex-wrap: wrap
+	h3
+		width: 100%
+		text-align: center
+.clientes-die
+	width: 100%
+	display: flex
+	justify-content: space-around
+	align-self: start
+	flex-wrap: wrap
+	h3
+		width: 100%
+		text-align: center
+.cliente
+	width: 50%
+	display: block
+	position: relative
+	box-sizing: border-box
+	text-align: center
+	overflow: hidden
+	box-sizing: border-box
+	text-decoration: none
+	@media (max-width: $tablet)
+		width: 100%
+	.cliente-txt
+		transition: all 1s
+		background-color: rgba($color_secu,.8)	
+		width: 100%
+		bottom: 0px
+		display: flex
+		align-items: center
+		.cliente-desc
+			display: flex
+			flex-wrap: wrap
+			width: 65%
+			padding: 15px
+			text-align: left
+			box-sizing: border-box
+			position: relative
+			color: $color_text_uno
+			h4
+				font-size: 120%
+				margin: 0px
+				width: 100%
+			p
+				font-size: 11px
+				margin: 0px
+		.cliente-log
+			width: 35%
+			display: flex
+			justify-content: center
+			align-items: center
+			img
+				width: 95%
+
+.usua-inf
+	width: 400px
+	box-shadow: inset -5px -5px 5px -5px rgba(0, 0, 0, .3)
+	@media (max-width: $tablet)
+		width: 100%
+		height: auto
+		box-shadow: inset -5px -5px -5px -5px rgba(0, 0, 0, .3)
+	.usua-data
+		width: 100%
+		display: flex
+		justify-content: start
+		flex-wrap: wrap
+		padding: 25px 15px
+		margin-bottom: 50px
+		.usua-img
+			width: 50px
+			height: 50px
+			display: flex
+			justify-content: center
+			align-items: center
+			border-radius: 50%
+			overflow: hidden
+			background-color: #fff
+			img
+				width: 90%
+		.usua-nom
+			padding-left: 10px
+			p,h5
+				padding: 0px
+				margin: 0px
+		.tex-cont
+			width: 100%
+.usua-file
+	width: calc(100% - 400px)
+	display: flex
+	justify-content: center
+	align-items: center
+	min-height: 400px
+	flex-wrap: wrap
+	text-align: center
+	color: #D1D1D1
+	i
+		font-size: 150px
+	h3
+		width: 100%
+		text-align: center
+
+.cli-inf
+	width: 400px
+	box-shadow: inset -5px -5px 5px -5px rgba(0, 0, 0, .3)
+	height: 100vh
+	@media (max-width: $tablet)
+		width: 100%
+		height: auto
+		box-shadow: inset -5px -5px -5px -5px rgba(0, 0, 0, .3)
+	.cli-por
+		width: 100%
+		display: flex
+		justify-content: center
+		background-repeat: no-repeat
+		background-position: center
+		background-size: cover
+		padding: 120px 25px 0px 25px
+		margin-bottom: 50px
+		box-shadow: inset -5px -5px 5px -5px rgba(0, 0, 0, .3)
+		@media (max-width: $tablet)
+			box-shadow: inset -5px -5px -5px -5px rgba(0, 0, 0, .3)
+		.cli-img
+			width: 150px
+			height: 150px
+			display: flex
+			justify-content: center
+			align-items: center
+			border-radius: 50%
+			overflow: hidden
+			margin-bottom: -50px
+			background-color: #fff
+			img
+				width: 90%
+	.cli-tex
+		width: 100%
+		p
+			padding: 0px 20px
+		span
+			font-size: 14px
+			font-weight: 600
+			text-align: center
+			display: block
+			width: 100%
+			margin-bottom: -8px
+		h3
+			width: 100%
+			text-align: center
+			margin-bottom: -5px
+		p
+			width: 100%
+			text-align: center
+		.tex-cont
+			width: 100%
+			padding: 0px 25px
+.cli-data
+	width: calc(100% - 400px)
+	background-color: #F8F8F8
+	height: 100vh
+	max-height: 100vh
+	overflow-y: auto
+	padding: 10px
+	box-sizing: border-box
+	@media (max-width: $tablet)
+		width: 100%
+		padding: 0px
+		max-height: inherit
+		height: auto
+.cont-resu
+	width: 100%
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+	box-sizing: border-box
+	.resu-item
+		width: 23%
+		margin: 7px
+		padding: 10px
+		border-radius: 15px
+		box-sizing: border-box
+		box-shadow: 0px 0px 3px rgba(0, 0, 0, .3)
+		@media (max-width: $tablet)
+			width: 46%
+		@media (max-width: $mobil)
+			width: 45%
+		p
+			margin-top: -10px
+			margin-bottom: 0px
+			font-size: 14px
+		span
+			font-size: 24px
+.cont-graf
+	width: 100%
+	display: flex
+	flex-wrap: wrap
+	padding: 5px
+	.graf-item
+		border-radius: 15px
+		overflow: hidden
+		margin: 5px
+		box-shadow: 0px 0px 3px rgba(0, 0, 0, .3)
+
+.bck-col-1
+	background-color: #FFD296
+.bck-col-2
+	background-color: #B7FF96
+.bck-col-3
+	background-color: #96BFFF
+.bck-col-4
+	background-color: #C996FF
+.participa
+	width: 15%
+	display: block
+	margin: 5px 0px
+	min-height: 400px
+	max-height: 400px
+	position: relative
+	text-align: center
+	border-radius: 10px
+	overflow: hidden
+	box-sizing: border-box
+	text-decoration: none
+	transition: .8s
+	box-shadow: 0px 0px 2px rgba($color_terc,.3)
+	&:hover
+		z-index: 2
+		transform: scale(1.1) 
+	@media (max-width: $tablet)
+		width: 100%
+	.participa-img
+		width: 100%
+		height: 100%
+		object-fit: cover
+	.participa-txt
+		position: absolute
+		justify-content: center
+		transition: all 1s
+		background-color: rgba($color_secu,.9)	
+		width: 100%
+		box-shadow: 0px 0px 3px rgba($color_terc,.3)
+		height: auto
+		left: 0px
+		bottom: 0px
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+		.participa-desc
+			display: flex
+			flex-wrap: wrap
+			width: 100%
+			padding: 15px
+			text-align: left
+			box-sizing: border-box
+			position: relative
+			color: $color_text_uno
+			h4
+				font-size: 100%
+				margin: 0px
+				width: 100%
+			p
+				font-size: 11px
+				margin: 0px
+	.participa-log
+		width: 80px
+		height: 80px
+		padding: 5px
+		box-shadow: 0px 0px 2px rgba(0,0,0,.5)
+		background-color: rgba($color_secu,.9)
+		border-radius: 50%
+		display: flex
+		position: absolute
+		top: 50px
+		left: 50%
+		transform: translateX(-50%)
+		justify-content: center
+		align-items: center
+		img
+			width: 95%
+/* SERVICIOS */
+.contenedor-servicios
+	width: 100%
+	height: auto
+	display: flex
+	flex-wrap: wrap
+	align-content: center
+	justify-content: space-around
+
+.servicio
+	width: 33.33%
+	height: 300px
+	color: $color_text_uno
+	position: relative
+	overflow: hidden
+	transition: all 1s			
+	@media (max-width: $netbook)
+		width: 50%
+	@media (max-width: $tablet)
+		width: 100%
+	.servicio-img
+		width: 100%
+		height: 100%
+		object-fit: cover
+	.servicio-txt
+		position: absolute
+		top: 0px
+		left: 0px
+		width: 100%
+		height: 100%
+		box-sizing: border-box
+		transition: all 1s
+		display: flex
+		flex-wrap: wrap
+		justify-content: center
+		align-items: center
+		background-color: rgba($color_secu,0.8)
+		&:hover
+			background-color: rgba($color_prin,0.7)
+			.servicio-opt
+				color: $color_text_dos
+		.servicio-opt
+			text-align: center
+.servicio_color
+	width: 100%
+	height: 100%
+	box-sizing: border-box
+	transition: all 1s
+	background-color: rgba($color_secu,0.8)
+	&:hover
+		background-color: rgba($color_prin,0.7)
+		.servicio_detalles
+			color: $color_text_dos
+
+.servicio_detalles
+	box-sizing: border-box
+	width: 100%
+	padding: 10px
+	height: auto
+	position: absolute
+	text-align: center
+	top: 50%
+	transform: translateY(-50%)
+	z-index: 1		
+
+.servicio-cont
+	height: 100vh
+	width: 100%
+.servicio_diciembre,.servicio_software, .servicio_web, .servicio_base, .servicio_soporte, .servicio_grafica, .servicio_blog
+	background-repeat: no-repeat
+	background-position: center
+	background-size: cover
+	background-attachment: fixed
+
+.servicio_software
+	background-image: url("../img/servicios/iphone-791450_1920.jpg")
+.servicio_web
+	background-image: url("../img/servicios/laptop-2443052_1920.jpg")
+.servicio_base
+	background-image: url("../img/servicios/season-1985856_1920.jpg")
+.servicio_soporte
+	background-image: url("../img/servicios/men-1979261_1920.jpg")
+.servicio_grafica
+	background-image: url("../img/servicios/people-2557396_1920.jpg")	
+.servicio_blog
+	background-image: url("../img/contenido/analogue-2846297_1920.jpg")
+.servicio_diciembre
+	background-image: url("../img/servicios/background-1462755_1920.jpg")
+/*COMPONENTES*/
+.contenedor_componente
+	width: 100%
+	background: $color_prin
+	.componente
+		width: 50%
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		align-items: center
+		color: $color_text_dos
+		box-sizing: border-box
+		margin-bottom: 10px
+		padding: 15px
+		@media (max-width: $tablet)
+			width: 100%
+		.componente_icono
+			width: 100px
+			@media (max-width: $mobil)
+				width: 100%
+			div
+				width: 100%
+				text-align: center
+				span
+					font-size: 70px	
+		.componente_texto
+			width: calc(100% - 100px)
+			padding: 10px
+			box-sizing: border-box
+			text-align: justify
+			@media (max-width: $mobil)
+				width: 100%
+				h2
+					text-align: center
+
+
+/*CONTENEDOR*/
+.informa_columnas
+	width: 100%	
+	display: flex
+	flex-wrap: wrap
+	align-content: center
+	justify-content: space-around
+	padding: 30px 0px
+	position: relative
+.contenedor_informa
+	width: 80%
+	margin: auto
+	@media (max-width: $netbook)
+			width: 100%
+	.colum_informa
+		width: 24.5%
+		display: block
+		text-align: center
+		background: $color_prin
+		color: $color_secu
+		padding: 30px 25px 125px 25px
+		box-sizing: border-box
+		position: relative
+		text-decoration: none
+		transition: all 1s
+		margin-bottom: 10px
+		@media (max-width: $tablet)
+			width: 49.5%
+		@media (max-width: $mobil)
+			width: 100%
+		i
+			font-size: 80px
+			padding: 15px
+		&:before
+			content: ""
+			position: absolute
+			width: 50%
+			height: 15%
+			left: 0px
+			bottom: 0px
+			background: linear-gradient(15deg, $color_secu 50%, transparent 50%)
+		&:after
+			content: ""
+			position: absolute
+			width: 50%
+			height: 15%
+			right: 0px
+			bottom: 0px
+			background: linear-gradient(165deg,  transparent 50%, $color_secu 50%)
+		&:hover
+			height: calc(auto + 100px)
+			color: $color_text_tre
+			background: linear-gradient(180deg, $color_secu, $color_secu, $color_prin)
+			.colum_text
+				color: $color_text_uno
+	
+
+/*FOOTER*/
+footer
+	width: 100%
+	position: relative
+	height: auto
+	background-image: url("../img/contenido/web-design-2038872_1920.jpg")
+	background-size: cover
+	background-position: center
+	.footer-fond
+		background-color: rgba($color_secu,0.9)
+.footer
+	padding: 20px 0px
+	margin: auto
+	max-width: 1240px
+	display: flex
+	flex-wrap: wrap
+.footer_columna
+	width: 33%
+	padding: 20px 15px
+	box-sizing: border-box
+	color: $color_text_uno
+	@media (max-width: $tablet)
+		width: 100%
+	p
+		text-align: justify
+.copyright
+	width: 100%
+	color: $color_text_uno
+	text-align: center
+	padding: 10px
+	box-sizing: border-box
+/*LOGO*/
+.logo_completo
+	width: 100%
+	text-align: center
+	display: flex
+	h1
+		vertical-align: center
+		position: relative
+		width: auto
+		vertical-align: middle
+		
+
+.logo_prin
+	color: $color_text_uno
+	fill: $color_text_uno
+.logo_secu
+	float: left
+	color: $color_text_tre
+	fill: $color_text_tre
+.logo_uno
+	width: 40px
+	height: 40px
+.logo_dos
+	transition: all 2s
+	width: 50px
+	height: 50px
+	@media (max-width: $laptop)
+		top: 3px !important
+		width: 40px
+		height: 40px
+.logo_tres
+	width: 70px
+	height: 70px
+.logo_fixed
+	transition: all 2s
+	position: relative
+	padding: 5px
+	box-sizing: border-box
+	font-size: 60px !important
+	display: flex
+	a
+		display: flex
+		align-items: center
+	
+/*ANIMACIONES*/
+@keyframes flechas
+	to
+		font-size: 60px
+
+@keyframes opacidad
+	from
+		top: -100%
+		opacity: 0
+	
+
+@keyframes mover
+	from
+		right: -100%
+
+
+@keyframes izquierda
+	0%
+		left: -100%
+	
+	100%
+		left: 0
+	
+
+@keyframes derecha
+	0%
+		right: -100%
+	
+	100%
+		right: 0
+
+@keyframes bajar
+	from
+		top: -100%
+
+@keyframes opa
+	from
+		opacity: 0
+	to
+		opacity: 1
+
+@keyframes mover_img_slider
+	from
+		right: -100%
+@keyframes desaparecer
+	10%
+		left: 0%
+	90% 
+		left: 0%
+	100%
+		left: -100%
+
+@keyframes focus-zoom
+	from 
+		transform: scale(0,0)
+	to
+		transform: scale(1,1)
+@keyframes focus-opacity
+	from 
+		opacity: 0
+	to
+		opacity: 1
+
+/* CODIGO RECICLADO*/
+
+
+
+.menu-usuario
+	background-color: $color_prin
+	position: fixed
+	color: white
+	top: 100px
+	right: -200px
+	width: 250px
+	overflow: hidden
+	height: 100vh
+	z-index: 100
+	transition: all 1s
+
+.menu-usuario ul
+	list-style: none
+	text-decoration: none
+
+.menu-usuario ul li 
+	width: 100%
+	height: auto
+	margin: auto
+	overflow: hidden
+	box-sizing: border-box
+
+.menu-usuario ul li a
+	text-decoration: none
+	color: white
+	font-size: 17px
+	width: 100%
+	height: 50px
+	padding: 15px 0px
+	box-sizing: border-box
+	line-height: normal
+	display: block
+
+.menu-usuario ul li a:hover
+	background-color: rgba($color_secu,0.8)
+	color: $color_prin
+
+.menu-usuario ul li a span 
+	font-size: 20px
+	padding: 0px 15px
+	float: left
+//-----------ACTUALIZACIÓN DICIEMBRE 2018----------------
+//COLORES BACKGROUND
+
+.bgd-gris-uno
+	background: #F7F7F7
+
+//DIMENSIONES DE ANCHO
+.width-10-pto
+	width: 10%
+.width-15-pto
+	width: 15%
+.width-20-pto
+	width: 20%
+.width-25-pto
+	width: 25%
+.width-30-pto
+	width: 30%
+	@media (max-width: $tablet)
+		width: 100%
+.width-35-pto
+	width: 35%
+	@media (max-width: $tablet)
+		width: 100%
+.width-40-pto
+	width: 40%
+	@media (max-width: $tablet)
+		width: 100%
+.width-45-pto
+	width: 45%
+	@media (max-width: $tablet)
+		width: 100%
+.width-50-pto
+	width: 50%
+	@media (max-width: $tablet)
+		width: 100%
+.width-55-pto
+	width: 55%
+	@media (max-width: $tablet)
+		width: 100%
+.width-60-pto
+	width: 60%
+.width-65-pto
+	width: 65%
+.width-70-pto
+	width: 70%
+	@media (max-width: $tablet)
+		width: 100%
+.width-75-pto
+	width: 75%
+.width-80-pto
+	width: 80%
+.width-85-pto
+	width: 85%
+.width-90-pto
+	width: 90%
+	@media (max-width: $tablet)
+		width: 100%
+.width-95-pto
+	width: 95%
+.width-100-pto
+	width: 100%
+//LISTA DE CONTENIDOS
+.cont-list-uno
+	margin: 0px
+	padding: 0px
+	display: flex
+	justify-content: flex-start
+	list-style: none
+	.list-item
+		display: flex
+		justify-content: flex-start
+		align-items: center
+		padding: 5px 10px
+		box-sizing: border-box
+.cont-list-dos
+	margin: 0px
+	padding: 10px
+	box-sizing: border-box
+	list-style: none
+	li
+		display: flex
+		justify-content: flex-start
+		align-items: center
+		box-sizing: border-box
+//IMAGENES DE CONTENIDO
+.cont-img-uno
+	width: 50px
+	height: 50px
+	border-radius: 50%
+	position: relative
+	overflow: hidden
+	margin: auto
+	border: 3px solid $color_prin
+	z-index: 1
+
+//CONTENEDORES 2018
+.container-diez
+	display: flex
+	justify-content: space-between
+	width: 100%
+	height: auto
+	border-radius: 10px
+	background-color: $color_secu
+	box-shadow: 0px 0px 2px rgba($color_terc, 0.4)
+	margin-bottom: 10px
+	@media (max-width: $tablet)
+		flex-wrap: wrap
+.container-option
+	display: flex
+	flex-wrap: wrap
+	width: auto
+	max-width: 95px
+	padding: 5px
+	justify-content: space-around
+	box-sizing: border-box
+	align-items: center
+	@media (max-width: $tablet)
+		width: 100%
+		max-width: 100%
+		justify-content: space-around
+//BOTONES
+.btn
+	display: flex
+	justify-content: center
+	align-items: center
+	margin: 3px
+	cursor: pointer
+	&:hover
+		color: #fff
+.btn-cir-uno
+	height: 30px
+	width: 30px
+	color: #fff
+	border-radius: 50%
+	&:hover
+		opacity: .8
+.btn-uno
+	display: flex
+	border: none
+	justify-content: center
+	align-items: center
+	text-decoration: none
+	color: $color_secu
+	background: $color_prin
+	padding: 5px 15px
+	border-radius: 25px
+	box-shadow: 0px 0px 3px rgba($color_terc, 0.4)
+	margin-left: 10px
+	i 
+		margin-right: 5px
+	&.active
+		background: $color_secu
+	&:hover
+		cursor: pointer
+		opacity: .8
+//POSICION ABSOLUTE
+.pos-rel-uno
+	width: 100%
+	margin-top: -20px
+	padding: 0px
+	position: relative
+.pos-rel-dos
+	position: relative
+	.cont-btn-color
+		top: -12px !important
+.pos-abs-uno
+	position: absolute !important
+	left: 10px 
+	top: 5px
+	z-index: 1001
+.pos-abs-dos
+	position: absolute !important
+	top: -150px
+	left: 50%
+	transform: translateX(-50%)
+.pos-abs-tre
+	position: absolute !important
+	top: -120px
+	left: 50%
+	transform: translateX(-50%)
+//FOCUS MODAL
+.focus-modal
+	width: 100vw
+	height: 100vh
+	top: 0px
+	left: 0px
+	padding: 15px
+	box-sizing: border-box
+	position: fixed
+	overflow: hidden
+	overflow-y: auto
+	display: flex
+	justify-content: center
+	align-items: center
+	background: rgba($color_terc, 0.5)
+	z-index: 1000
+	animation: focus-opacity .5s
+	.container-form
+		position: relative
+		border-radius: 15px
+		height: auto
+		background-color: $color_secu 
+		box-shadow: 0px 1px 4px rgba($color_terc, 0.3)
+		animation: focus-zoom 1s
+		.modal-clo
+			border: 0px
+			padding: 3px
+			text-align: center
+			height: 30px
+			width: 30px
+			border-radius: 50%
+			background: #ddd
+			z-index: 250
+			opacity: 0.7
+			position: absolute
+			top: -10px
+			right: -10px
+			font-weight: 900
+			line-height: 1
+			color: #000
+			cursor: pointer
+	@media (max-width: $desktop)
+		.width-40-pto
+			width: 50%
+	@media (max-width: $netbook)
+		.width-40-pto
+			width: 60%
+	@media (max-width: $laptop)
+		.width-40-pto
+			width: 70%
+	@media (max-width: $tablet)
+		.width-40-pto
+			width: 85%
+	@media (max-width: $mobil)
+		.width-40-pto
+			width: 95%
+.cliente_recuadro
+	display: flex
+	flex-wrap: wrap
+	width: 100%
+	height: auto
+	border-radius: 10px
+	background-color: $color_secu
+	box-shadow: 0px 1px 2px rgba($color_terc, 0.2)
+	margin-bottom: 5px
+	.cliente_informacion
+		position: relative
+		width: 100%
+		display: flex
+		justify-content: space-around
+		overflow: hidden
+		@media (max-width: $mobil)
+			display: block
+		.contenedor_img
+			padding: 10px
+			box-sizing: border-box
+			width: 200px
+			display: flex
+			justify-content: center
+			height: auto
+			@media (max-width: $tablet)
+				width: 100%
+				position: relative
+		.contenedor_txt
+			padding: 15px 0px
+			box-sizing: border-box
+			display: flex
+			flex-wrap: wrap
+			justify-content: center
+			width: calc(100% - 200px)
+			@media (max-width: $mobil)
+				width: 100%
+			.txt_left
+				width: 50%
+				padding: 0px 15px
+				box-sizing: border-box
+				@media (max-width: $netbook)
+					width: 100%
+			.txt_right
+				width: 50%
+				padding: 0px 15px
+				box-sizing: border-box
+				@media (max-width: $netbook)
+					width: 100%
+		.menu_opciones
+			width: 100%
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-around
+			span
+				display: block
+				padding: 15px 5px
+				font-size: 20px
+
+		@media (max-width: $desktop)
+			width: 100%
+	.cliente_detalles
+		display: block
+		background: linear-gradient( 180deg,transparent, rgba($color_fond_tre,0.9), rgba($color_fond_tre,0.95) , rgba($color_fond_tre,0.95) )
+		color: $color_text_dos
+		position: relative
+		bottom: 0px
+		left: 0px
+		width: 100%
+		height: auto
+		overflow: hidden
+		transition: height 1s
+		#p
+			width: 100%
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+			margin: auto
+			a
+				text-decoration: none
+				color: $color_text_dos
+				width: 20%
+				font-size: 20px
+				text-align: center
+
+			span
+				width: 20%
+				font-size: 20px
+				padding: 15px
+				text-align: center
+				&:hover
+					color: $color_prin
+					cursor: pointer
+.cliente_factura
+	width: 100%
+	height: auto
+	position: relative
+	overflow-y: auto
+	@media (max-width: $desktop)
+		width: 100%
+		height: auto
+/*FACTURA*/
+.factura
+	width: 99%
+	margin: auto
+	padding: 10px
+	border-radius: 10px
+	border: 1px solid rgba($color_terc, 0.2)
+	box-shadow: 0px 1px 2px rgba($color_terc, 0.2)
+	box-sizing: border-box
+	margin-bottom: 10px
+	display: flex
+	flex-wrap: wrap
+	align-items: center
+	background-color: rgba(211,211,211,0.4)
+	.factura-text
+		width: calc(100% - 150px)
+		box-sizing: border-box
+	.factura-opti
+		width: 150px
+		display: flex
+		flex-wrap: wrap
+		box-sizing: border-box
+		justify-content: flex-end
+		.btn-circle
+			margin: 2px
+		@media (max-width: $mobil)
+			justify-content: space-around
+			width: 100%
+.identificador
+	position: absolute
+	padding: 10px
+	top: 0px
+	right: 0px
+
+.cliente_detalles #p .usu_detal
+	padding: 10px
+/*CONSULTA USUARIOS*/
+.usu_info
+	position: relative
+	width: 33%
+	padding: 20px 10px
+	box-sizing: border-box
+	border: 1px solid rgba($color_terc, 0.1)
+	background-color: $color_secu
+	box-shadow: 0px 1px 2px rgba($color_terc, 0.2)
+	margin-bottom: 15px
+	color: $color_text_uno
+	@media (max-width: $desktop)
+		width: 49.5%
+	@media (max-width: $netbook)
+		width: 70%
+	@media (max-width: $tablet)
+		width: 90%
+	@media (max-width: $mobil)
+		width: 100%
+
+#opt_user
+	display: block
+	background: linear-gradient( 180deg,transparent, rgba($color_fond_tre,0.9), rgba($color_fond_tre,0.95) , rgba($color_fond_tre,0.95) )
+	color: $color_text_dos
+	position: absolute
+	bottom: 0px
+	left: 0px
+	width: 100%
+	height: 0%
+	overflow: hidden
+	transition: height 1s
+
+#opt_user #p
+	width: 100%
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+	margin: auto
+
+#opt_user #p a
+	text-decoration: none
+	color: $color_text_dos
+	width: 20%
+	font-size: 20px
+	text-align: center
+
+#opt_user #p span
+	width: 20%
+	font-size: 20px
+	padding: 15px
+	text-align: center
+
+#opt_user #p span:hover
+	color: $color_prin
+	cursor: pointer
+
+.usu_detal #list_id
+	position: absolute
+	top: 0px
+	right: 0px
+
+#opt_user #p .usu_detal
+	padding: 10px
+
+.usu_info:hover #opt_user
+	height: 55%
+
+.usu_detal
+	text-decoration: none
+	list-style: none
+	width: 100%
+	position: relative
+
+.cont_img
+	width: 150px
+	height: 150px
+	border-radius: 50%
+	position: relative
+	overflow: hidden
+	margin: auto
+	border: 3px solid $color_prin
+	z-index: 1
+.usu_img
+	width: 100%
+	height: 100%
+	position: absolute
+	object-fit: cover
+	z-index: 1
+
+.text_fond
+	position: absolute
+	width: 100%
+	color: white
+	font-size: 13px
+	text-align: center
+	top: 50%
+	transform: translateY(-50%)
+
+
+/*BOTON MOVIL*/
+#boton_cliente + label:after
+	content: "Cliente"
+	position: absolute
+	top: 0px
+	right: 50px
+	color: $color_text_uno
+
+.btn-check, #cont_paq, #cliente_caja
+	display: none
+	transition: all 1s
+
+.btn-check + label
+	position: absolute 
+	display: block
+	width: 40px
+	height: 20px
+	background-color: rgba($color_text_uno,0.4)
+	border-radius: 10px
+	transition: all 1s
+	cursor: pointer
+
+.btn-check + label:after
+	content: "Paquete"
+	position: absolute
+	top: 0px
+	right: 50px
+	color: $color_text_uno
+
+.btn-check + label:before
+	content: ""
+	display: block
+	background-color: rgba($color_text_uno,0.6)
+	width: 20px
+	height: 20px
+	position: relative
+	border-radius: 50%
+	transition: all 1s
+	left: 0px
+	cursor: pointer
+
+.btn-check
+	&:checked ~ #cont_paq
+		display: block
+	&:checked ~ #cliente_caja
+		display: block 
+	&:checked ~ #no_cliente
+		display: none
+
+.btn-check:checked ~ #input-sev
+	width: 21% !important
+
+/*CLIENTE*/
+.btn-check + label
+	position: absolute
+	display: block
+	width: 40px
+	height: 20px
+	background-color: rgba($color_text_uno,0.4)
+	border-radius: 10px
+	transition: all 1s
+	cursor: pointer
+#prog_paq + label
+	top: 10px
+	right: 10px
+#boton_cliente + label
+	right: 10px
+	top: -30px
+
+/*TECNOLOGIAS*/
+.tecnologias .ath-tecn
+	width: 20%
+	padding: 10px
+	overflow: hidden
+	border: 1px solid rgba(0,0,0,0.2)
+	box-sizing: border-box
+	position: relative
+
+.tecn-img
+	height: auto
+	text-align: center
+
+
+.tecn-img img
+	width: 100%
+	height: auto
+	margin: 0px auto
+	transition: width 2s, height 2s, transform 2s
+	-moz-transition: width 2s, height 2s, -moz-transform 2s
+	-webkit-transition: width 2s, height 2s, -webkit-transform 2s
+	-o-transition: width 2s, height 2s,-o-transform 2s
+
+.tecn-title
+	height: 100%
+	top: 50%
+	transform: translateY(-50%)
+	left: 0px
+	background-color: rgba(0,0,0,0.8)
+	text-align: center
+	width: 100%
+	color: white
+	opacity: 0
+	transition: opacity 1s
+	display: table
+	position: absolute
+
+.tecn-title span
+	display: table-cell
+	vertical-align: middle
+	text-align: center
+	padding: 5px
+
+.tecnologias .ath-tecn:hover .tecn-img img
+	transform : scale(1.2)
+	-moz-transform : scale(1.2)
+	-webkit-transform : scale(1.2)
+	-o-transform : scale(1.2) 
+
+.tecnologias .ath-tecn:hover .tecn-title
+	cursor: pointer
+	opacity: 1
+
+.log-men
+	width: 150px
+	margin-left: 5px
+	img
+		width: 100%
+/*_____________________________________USUARIO_____________________________________*/
+.cont-comp
+	width: 100%
+	display: flex
+	padding: 10px
+	box-sizing: border-box
+	position: relative
+	flex-wrap: wrap
+	@media (max-width: $tablet)
+		display: none !important
+	.comp-log
+		width: 100%
+		margin-bottom: 10px
+		img
+			width: 100%
+	.comp-inf
+		display: flex
+		.comp-img
+			width: 50px
+			height: 50px
+			position: relative
+			margin-right: 5px
+			overflow: hidden
+			border-radius: 50%
+			box-shadow: 0px 0px 2px rgba($color_terc,.5)
+			border: 1px solid $color_text_dos
+			img
+				height: 100%
+				width: 100%
+				object-fit: cover
+		.comp-tex
+			width: calc(100% - 55px)
+			color: #000
+			display: flex
+			flex-wrap: wrap
+			align-items: center
+			h5
+				font-size: 12px
+				margin: 0px
+.icono_sesion
+	margin: 0px 0px 0px 5px
+
+.fila-fija
+	.eliminar
+		display: none
+.eliminar
+	display: flex
+	justify-content: center
+/*PANELES*/
+.panel_usuario
+	right: 0px
+	left: 0px
+	top: 0px
+	bottom: 0px
+	position: relative
+	height: 100vh
+	display: flex
+	flex-wrap: wrap
+	box-sizing: border-box
+	overflow: hidden
+	.panel-left
+		width: 200px
+		left: 0px
+		top: 0px
+		transition: all 1s
+		background: #F0F0F0
+		height: 100vh 
+		position: relative
+		.usuario-menu
+			list-style: none
+			width: 100%
+			display: flex
+			flex-wrap: wrap
+			li
+				display: flex
+				position: relative
+				width: 100%
+				@media (max-width: $tablet)
+					justify-content: space-between
+					width: 16.66%
+				@media (max-width: $mobil)
+					width: 20%
+				a,#btn-sesion
+					width: 100%
+					display: flex
+					align-items: center
+					padding: 10px 15px
+					color: $color_terc
+					cursor: pointer
+					height: auto
+					text-decoration: none !important
+					transition: all .5s
+					@media (max-width: $tablet)
+						padding: 10px 5px
+						flex-wrap: wrap
+						justify-content: center
+					&:hover
+						background: $color_secu
+						color: $color_terc
+						@media (max-width: $tablet)
+					span 
+						margin-right: 8px
+						@media (max-width: $tablet)
+							margin: 0px
+					.item-text
+						overflow: hidden
+						display: flex
+						align-items: center
+						position: relative
+						width: 150px
+						height: 25px
+						@media (max-width: $tablet)
+							font-size: 9px
+							width: 100%
+							justify-content: center
+							text-align: center
+							height: auto
+				.item-select::after
+					content: ""
+					position: absolute
+					display: block
+					right: 0px
+					top: 14px
+					width: 10px
+					height: 0
+					border-top: 10px solid transparent
+					border-right: 10px solid #fff
+					border-bottom: 10px solid transparent
+					@media (max-width: $tablet)
+						display: none
+				.item-select
+					background: rgba(211,211,211,.5)
+			@media (max-width: $tablet)
+				margin: 0px !important
+				#cerrar-sesion,#publicaciones
+					display: none
+			@media (max-width: $mobil)
+				#solicitudes
+					display: none
+
+		@media (max-width: $tablet)
+			width: 100%
+			height: 50px
+			bottom: 0px
+			top: initial
+			position: fixed
+			z-index: 100
+	.panel-right
+		background-color: #fff
+		width: calc(100vw - 200px)
+		height: 100vh
+		top: 0px
+		transition: width 1s
+		position: relative
+		overflow-y: auto
+		.content-grafic
+			padding: 15px
+			box-sizing: border-box
+			@media (max-width: $mobil)
+				padding: 5px
+			.chart-meses,.chart-general,.chart-anios
+				padding: 15px
+				margin: 10px 0px
+				background-color: $color_secu
+				box-sizing: border-box
+				border-radius: 10px
+				box-shadow: 0px 0px 3px rgba(0,0,0,.3)	
+			.chart-meses
+				height: 50vh
+				width: 100%
+			.chart-anios
+				width: 34%
+				height: auto
+				@media (max-width: $tablet)
+					width: 100%
+			.chart-general
+				width: 64%
+				height: auto
+				@media (max-width: $tablet)
+					width: 100%
+		@media (max-width: $tablet)
+			width: 100%
+			margin-top: 45px
+			height: calc(100vh - 94px)
+	@media (max-width: $tablet)
+		position: relative
+		right: none
+		left: none
+		bottom: none
+	.panel
+		height: calc(100vh - 50px)
+		position: relative
+		overflow: hidden
+		box-sizing: border-box 
+		overflow-y: auto !important
+		@media (max-width: $tablet)
+			width: 100%
+	.panel_left
+		background-color: rgba($color_fond_dos, 0.1)
+		box-shadow: 2px 0px 3px rgba(0,0,0,0.2)
+		width: 35%
+		@media (max-width: $netbook)
+			width: 45%
+		@media (max-width: $tablet)
+			width: 100%
+	.panel_right
+		width: 65%
+		background-color: rgba(211,211,211, 0.2)
+		@media (max-width: $netbook)
+			width: 55%
+		@media (max-width: $tablet)
+			width: 100%
+	
+//FORMULARIOS
+.fila-fija .eliminar,.fila-fijaAdd .eliminarAdd
+	display: none !important
+	
+//FACTURA
+.fecha_factura
+	width: 50%
+	text-align: right
+//PROGRAMAS
+.option_prog
+	position: relative
+	padding: 0px !important
+	height: 100%
+
+.content-option
+	text-align: center
+	position: absolute
+	height: 100%
+	background-color: rgba(0,0,0, 0.8)
+	width: 0px
+	top: 0px
+	left: 0px
+	margin: 0px !important
+	padding: 0px !important
+	overflow: hidden
+	box-sizing: border-box
+
+#option-list
+	position: absolute
+	top: 50%
+	transform: translateY(-50%)
+	width: 100%
+
+.option_prog a
+	font-size: 15px
+	width: 45%
+	height: 100%
+	overflow: hidden
+	padding: 15px 5px
+	margin: 0px
+	box-sizing: border-box
+	line-height: 3em
+	display: inline-block
+	text-decoration: none
+	color: white
+
+.option_prog a:hover
+	color: $color_prin
+
+.tbl_consul tr:hover .content-option
+	width: 100px
+
+.modal_eliminar
+	position: fixed
+	z-index: 2
+	width: 60%
+	height: 100%
+	top: 50px
+	right: 0px
+	bottom: 0px
+	background-color: rgba(0,0,0,.8)
+
+.modal_eliminar .eliminar_info
+	position: absolute
+	width: 100%
+	text-align: center
+	color: $color_text_dos
+	top: 50%
+	font-size: 20px
+	transform: translateY(-50%) 
+
+.modal_eliminar .eliminar_info a
+	color: $color_text_dos
+	display: inline-block
+	width: 50px
+	text-align: center
+	font-size: 20px
+	text-decoration: none
+//LISTAS
+.lista
+	text-decoration: none
+	list-style: none
+.lista_uno
+	text-align: left
+	li
+		padding: 8px 0px
+.lista_dos
+	margin-left: 20px
+
+//CONSULTA VISITAS
+.div_consul
+	margin: auto
+	width: 100%
+	box-sizing: border-box
+	padding: 0px
+	height: 85%
+	overflow: hidden
+	overflow-y: auto
+	overflow-x: auto
+
+.tbl_consul
+	width: 100%
+	position: relative
+	text-align: left
+	margin: auto
+	box-sizing: border-box
+	font-size: 12px
+	border: none
+	overflow-x: auto
+	border-collapse: collapse
+
+.tbl_consul th
+	overflow: hidden
+	padding: 5px
+	border: none
+	color: white
+
+.tbl_consul tr
+	position: relative !important
+	overflow: hidden !important
+	box-sizing: border-box !important
+
+.tbl_consul tr:nth-child(even) 
+	background-color: #f2f2f2
+
+
+.tbl_consul td
+	padding: 5px
+.modal
+	z-index: 900 !important
+	.modal
+		z-index: 950 !important
+		background: rgba(0, 0, 0, .3)
+		overflow-y: hidden
+.modal-backdrop
+	z-index: 800 !important
+//TABS SECCION
+.menu-tabs
+	position: relative
+	//background: rgba($color_secu,.7)
+	box-sizing: border-box
+	display: flex
+	justify-content: flex-end
+	a,button
+		display: flex
+		border: none
+		justify-content: center
+		align-items: center
+		text-decoration: none
+		color: $color_secu
+		background: $color_prin
+		padding: 5px 15px
+		border-radius: 25px
+		box-shadow: 0px 0px 3px rgba($color_terc, 0.4)
+		margin-left: 10px
+		margin-top: -10px
+		i 
+			margin-right: 5px
+		&.active
+			background: $color_secu
+		&:hover
+			cursor: pointer
+			opacity: .8
+.seccion-content
+	position: relative
+	overflow: hidden
+	overflow-y: auto
+	display: flex
+	flex-wrap: wrap
+	align-items: flex-start
+	justify-content: space-between
+.user-img
+	position: absolute
+	overflow: hidden
+	height: 180px
+	width: 180px
+	top: -100px
+	left: 50%
+	transform: translateX(-50%)
+	border-radius: 50%
+	display: flex
+	border: 2px solid $color_terc
+	justify-content: center
+	img
+		height: 100%
+.info-usuario
+	li
+		display: flex
+		justify-content: flex-start
+		i
+			display: block
+			margin: 0px
+			width: 25px
+			margin-right: 5px
+			text-align: center
+.usu-port
+	width: 100%
+	height: 30vh
+	border-radius: 15px 15px 0px 0px
+	overflow: hidden
+	img
+		width: 100% 
+		max-height: 100%
+		object-fit: cover
+		object-position: center
+.item-new
+	&:after
+		content: "Nuevo"
+		display: flex
+		align-items: center
+		position: absolute
+		font-size: 9px
+		background: $color_prin
+		color: $color_secu
+		height: 20px
+		padding: 0px 4px
+		box-sizing: border-box
+		border-radius: 25px
+		right: 4px
+		top: 8px
+.menu-secundario
+	position: relative
+	background: #ddd
+	z-index: 50
+	width: 100%
+	border-radius: 10px 0px 10px 10px
+	box-shadow: 0px 0px 3px rgba(0, 0, 0, .5) 
+	&:after
+		content: ""
+		position: absolute
+		display: block
+		right: 3px
+		top: -9px
+		width: 10px
+		height: 0
+		border-bottom: 10px solid #ddd
+		border-right: 10px solid transparent 
+		border-left: 10px solid transparent
+	a
+		width: 100%
+		display: flex
+		position: relative
+		justify-content: flex-start
+		padding: 5px 10px
+		color: $color_terc
+		span
+			display: flex
+			align-items: center 
+			height: 20px
+			width: 35px
+			margin-right: 8px
+			border-right: 1px solid $color_secu
+		&:hover
+			opacity: .8
+
+.soli-num
+	position: absolute
+	right: 3px
+	top: 5px
+	height: 20px
+	width: 20px
+	border-radius: 50%
+	display: flex
+	justify-content: center
+	align-items: center
+	font-size: 10px
+	background: red
+/*GALERIA USUARIO*/
+.check_vImg, .check_cImg, .check_nDelete, .check_sDelete
+	display: none
+
+.check_cImg + label
+	position: fixed
+	top: -50px
+	right: 0px
+	z-index: 2001
+	transition: all 1s
+
+.check_vImg + label
+	text-align: center
+
+.check_nDelete + label
+	height: 30px
+	width: 60px
+	background-color: transparent
+	position: absolute
+	z-index: 2
+	top: 46%
+	cursor: pointer
+	left: 31%
+	border-radius: 3px
+
+.check_sDelete + label
+	text-align: center
+	bottom: 0px
+
+.alert_modal
+	top: 0px
+	box-sizing: border-box
+	bottom: 0px
+	left: 0px
+	height: 0%
+	width: 100%
+	transition: all .3s
+	color: white
+	z-index: 100
+	position: absolute
+	background-color: rgba(0,0,0,0.9)
+	overflow: hidden
+.alert_modal div
+	width: 100%
+	height: 100%
+	box-sizing: border-box
+	position: relative
+
+.alert_modal div p
+	position: absolute
+	text-align: center
+	width: 100%
+	margin: auto
+	top: 50%
+	transform: translateY(-50%)
+	display: block
+	.alert_opcion
+		width: 30%
+		display: inline-block
+		color: $color_secu
+
+.modal_view
+	box-sizing: border-box
+	overflow: hidden
+	bottom: 0px
+	left: 0px
+	height: 100vh
+	width: 100%
+	position: fixed
+	transform: scale(0)
+	background-color: rgba(255,255,255,0.95)
+	z-index: 1000
+	transition: all 1.5s
+
+#content_modal
+	width: 100%
+	margin: auto
+	display: flex
+	flex-wrap: wrap
+	justify-content: center
+	align-items: center
+	box-sizing: border-box
+	overflow: hidden
+
+#content_modal div
+	position: relative
+	box-sizing: border-box
+	overflow: hidden
+
+#content_iModal
+	width: 75%
+	height: 100vh
+	margin: auto
+	padding: 5px 10px
+	box-sizing: border-box
+	align-content: center
+	overflow: hidden
+	display: flex
+	flex-wrap: wrap
+	justify-content: center
+	align-items: center
+	@media (max-width: $netbook)
+		width: 100%
+		height: 75vh
+	@media (max-width: $mobil)
+		height: 65vh
+
+#content_iModal img
+	height: 90% !important
+	width: auto !important
+	margin: auto
+
+
+#content_modal #content_tModal
+	width: 25%
+	height: 100%
+	color: $color_text_uno
+	overflow: hidden
+	@media (max-width: $netbook)
+		width: 100%
+		height: 25vh
+		overflow-y: auto
+	@media (max-width: $mobil)
+		height: 35vh
+
+#content_modal #content_tModal .modal_texto
+	top: 50%
+	position: absolute
+	transform: translateY(-50%)
+	width: 100%
+	height: auto
+	padding: 20px
+	text-align: left
+	box-sizing: border-box
+	@media (max-width: $netbook)
+		position: relative
+		top: 0px
+		transform: translateY(0%)
+.modal_texto p
+	text-align: justify !important
+#idResul
+	display: none
+.blog_article
+	width: 100%
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-around
+.blog_video
+	width: 40%
+	height: auto
+	overflow: hidden
+	.video_auto
+		width: 100%
+		height: auto
+		margin: auto
+		padding: 15px
+		transition: all 1s
+		box-sizing: border-box
+	@media (max-width: $tablet)
+		width: 100%
+.blog_text
+	width: 60%
+	display: flex
+	flex-wrap: wrap
+	align-items: center
+	height: auto
+	overflow: hidden
+	@media (max-width: $tablet)
+		width: 100%
+
+.blog_imagen
+	height: auto
+	box-sizing: border-box
+	overflow: hidden
+	margin-bottom: 10px
+	position: relative
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5)
+	&:hover .imagen-con
+		height: 100%
+.img_modificar
+	max-height: 300px
+	width: auto
+	img
+		height: 100%
+		width: auto
+.blog_publico
+	width: 47%
+	#hImg img
+		height: 100px
+	@media (max-width: $mobil)
+		width: 32%
+.blog_privado
+	width: 32%
+	#hImg img
+		height: 180px
+	
+.blog_imagen #hImg
+	display: block
+	overflow: hidden
+
+.blog_imagen #hImg img
+	width: 100%
+	object-fit: cover
+
+#img_fec
+	float: right
+	right: 0px
+.imagen-con
+	background-color: rgba(0,0,0,0.8)
+	color: white
+	bottom: 0px
+	left: 0px
+	width: 100%
+	position: absolute
+	display: flex
+	flex-wrap: wrap
+	align-items: center
+	height: 0%
+	overflow: hidden
+	transition: all .8s
+	.imagen-opt
+		display: flex
+		justify-content: space-around
+		width: 100%
+		padding: 10px
+		box-sizing: border-box 
+		overflow: hidden
+	.imagen-des
+		padding: 10px
+
+#opt_img
+	background-color: rgba(0,0,0,0.8)
+	color: white
+	bottom: 0px
+	left: 0px
+	width: 100%
+	height: 0%
+	overflow: hidden
+	transition: height 1s
+
+.blog_imagen:hover #opt_img
+	height: 100%
+
+#opt_img #p
+	display: flex
+	justify-content: space-between
+	width: 100%
+	margin: auto
+	overflow: hidden
+#opt_img #p a
+	display: inline
+	text-decoration: none
+	text-align: center
+	color: white
+	width: 20%
+	font-size: 20px
+	bottom: 0px
+
+#opt_img #p span
+	width: 20%
+	font-size: 20px
+	padding: 15px
+	text-align: center
+	bottom: 0px
+
+#opt_img #p span:hover
+	color: $color_prin
+	cursor: pointer
+
+#img-des
+	padding: 2px 15px
+	text-align: justify
+
+table.dataTable thead th
+	padding: 7px !important
+
+
