@@ -103,7 +103,6 @@ $datos_pass = array(
                         $absences  = new absenceController();
                         $absences_data = $absences->sel($_SESSION['usua_id']);
                         $num_absences = empty($absences_data) ? 0 : count($absences_data);
-                        //var_dump($absences_data);
     
                      ?> 
                     <script>
@@ -137,9 +136,6 @@ $datos_pass = array(
                     <div id='calendar'></div>
                     
                 </div>
-                <!--<div class="tab-pane fade show" id="firma" role="tabpanel" aria-labelledby="firma-tab">
-                    <?php include 'include/firma-correo.php';?>                
-                </div>-->
                 </div>
             </div>
         </div>

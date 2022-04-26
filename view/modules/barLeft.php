@@ -73,6 +73,7 @@ body{
       <img src='./public/img/logo/logo-1.png'>
     </div>
   <?php
+
 if (isset($_SESSION['usua_id'])) {
     echo "<div class='comp-inf'>
       <div class='comp-img'>
@@ -88,9 +89,6 @@ if (isset($_SESSION['usua_id'])) {
 }?>
   </div>
   <ul class="usuario-menu">
-    <!--<li>
-      <a  href='escritorio' <?php if ($pagina == "escritorio"): echo 'class="item-select"'; endif;?> ><span class='fa fa-home'></span><div class="item-text">Escritorio</div></a>
-    </li>-->
     <li id="ajustes">
       <a href='ajustes' <?php if ($pagina == "ajustes"): echo 'class="item-select"';endif; ?>><span class='fa fa-cogs'></span><div class="item-text">Ajustes</div></a>
     </li>

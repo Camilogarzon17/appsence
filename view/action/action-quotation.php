@@ -1,37 +1,6 @@
-<?php 
-$quotation = new quotationController();
+<?php
 $absence = new absenceController();
-$request = new requestController();
-$function = new functionModel();
-if ($_POST['crud'] == "add-coti") {
-	if ($_POST['coti_esta_fk'] == 2) {
-		$request->upd_estado($_POST['coti_soli_fk'],2);
-	}
-	$quotation_data = array(
- 		'coti_des' => $_POST['coti_des'],
- 		'coti_fec' => $_POST['coti_fec'],
- 		'coti_tyc' => $_POST['coti_tyc'],
- 		'coti_esta_fk' => $_POST['coti_esta_fk'],
- 		'coti_soli_fk' => $_POST['coti_soli_fk'],
- 		'coti_usua_fk' => $_SESSION['usua_id']
- 	);
- 	$coti_id = 0;
- 	$coti_id = $quotation->ins($quotation_data);
- 	$cdet_sdet_fk = $_POST['cdet_sdet_fk'];
- 	$cdet_dto = $_POST['cdet_dto'];
-	$cdet_pre = $_POST['cdet_pre'];
-	$num_cdet   = COUNT($cdet_sdet_fk);
-	$template_query = "REPLACE INTO tbl_cotizacion_detalle (cdet_id, cdet_pre,cdet_dto,cdet_sdet_fk,cdet_coti_fk)";
-    $template_query .= " VALUES ";
-	for ($i=0; $i < $num_cdet; $i++) { 
-		$template_query .= "(0,'".$cdet_pre[$i]."','".$cdet_dto[$i]."',".$cdet_sdet_fk[$i].",".$coti_id."),";
-	}
-	$template_query = substr($template_query, 0, -1);
-	$quotation->set_detalle($template_query);
-	//header("Location: facturas&alert=1&text=Factura registrada con exito");
- 	//var_dump($quotation_data);
- 	echo $template_query;
-}else if ($_POST['crud'] == "add-ause") {
+if ($_POST['crud'] == "add-ause") {
 
 	if ($_POST['ause_tie'] == 1) {
 		$_POST['ause_dia'] = 1;

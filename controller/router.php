@@ -45,6 +45,7 @@ class router {
         if( $_SESSION['ok']== true AND empty($_GET['r'])) $_GET['r'] = 'escritorio';
         $this->router = isset($_GET['r']) ? $_GET['r'] : 'login';
         $controller = new viewController();
+
         switch ($this->router) {
             case 'login':
                 if (isset($_POST['crud'])) $controller->load_page('action/action-user'); 
@@ -75,53 +76,11 @@ class router {
                 else if ($_POST['crud'] == 'add-carg') $controller->load_page('action/action-user');
                 else if ($_POST['crud'] == 'del-carg') $controller->load_page('action/action-user');
                 break;
-            case 'clientes':
-                if (!isset($_POST['crud'])) $controller->load_view('clientes');
-                else if ($_POST['crud'] == "add-empr") $controller->load_page('action/action-client');
-                else if ($_POST['crud'] == "edi-empr") $controller->load_page('action/action-client');
-                else if ($_POST['crud'] == "del-empr") $controller->load_page('action/action-client');
-                else if ($_POST['crud'] == "add-clie") $controller->load_page('action/action-client');
-                else if ($_POST['crud'] == "edi-clie") $controller->load_page('action/action-client');
-                else if ($_POST['crud'] == "del-clie") $controller->load_page('action/action-client');
-                break;
-            case 'facturas':
-                if (isset($_GET['pdf'])) $controller->load_page('pdf');
-                else  if (isset($_GET['enviar'])) $controller->load_page('enviar');
-                else if (!isset($_POST['crud'])) $controller->load_view('facturas');
-                else if ($_POST['crud'] == "add-fact") $controller->load_page('action/action-bill');
-                else if ($_POST['crud'] == "edi-fact") $controller->load_page('action/action-bill');
-                else if ($_POST['crud'] == "del-fact") $controller->load_page('action/action-bill');
-                else if ($_POST['crud'] == "val-fact") $controller->load_page('action/action-bill');
-                else if ($_POST['crud'] == "env-fact") $controller->load_page('action/action-bill');
-                break;
-            case 'solicitudes':
-                if (!isset($_GET['soli'])) $controller->load_view('solicitudes');
-                else if (!isset($_POST['crud'])) $controller->load_view('solicitudes');
-                else if ($_POST['crud'] == "add-coti") $controller->load_page('action/action-quotation');
-                break;
-            case 'publicaciones':
-                $controller->load_view('publicaciones');
-                break;
-            case 'servicios':
-                if (!isset($_POST['crud'])) $controller->load_view('servicios');
-                else if ($_POST['crud'] == "add-serv") $controller->load_page('action/action-service');
-                else if ($_POST['crud'] == "add-sdet") $controller->load_page('action/action-service');
-                else if ($_POST['crud'] == "edi-serv") $controller->load_page('action/action-service');
-                else if ($_POST['crud'] == "edi-sdet") $controller->load_page('action/action-service');
-                else if ($_POST['crud'] == "del-serv") $controller->load_page('action/action-service');
-                else if ($_POST['crud'] == "del-sdet") $controller->load_page('action/action-service');
-                break;
-            case 'visitas-web':
-                $controller->load_view('visitas-web');
-                break;
             case 'cerrar-sesion':
                 $user_session = new sessionController();
                 $user_session->logout();
                 break;
-            case 'articulo':
-                $controller->load_view('articulo');
-                break;
-            default: 
+            default:
                 $controller->load_page($this->router);
                 break;
         }
