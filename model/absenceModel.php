@@ -25,8 +25,6 @@ class absenceModel extends model{
         }
         $this->query = "UPDATE tbl_ausencia SET fact_cli_id = $fac_cli,fact_ser_id = $fac_ser, fact_usu_id = $fac_usu, fact_cod = '$fact_id', fact_tit = '$fac_tit', fact_nom = '$fac_nom', fact_fin = '$fac_fin', fact_fec = '$fac_fec', fact_des = '$fac_des', fact_pre = '$fac_pre', fact_dto = '$fac_dto', fact_doc = '$fac_doc' WHERE fact_id = $fact_id";
         $this->set_query();
-        $this->query = "UPDATE tbl_cuenta SET cue_num = '$fac_cue', cue_ban_fk = $fac_ban WHERE cue_fact_fk = $fact_id";
-        $this->set_query();
     }
 
     public function upd_estado($ause_id,$ause_est){

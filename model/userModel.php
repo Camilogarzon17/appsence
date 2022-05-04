@@ -30,14 +30,10 @@ class userModel extends model{
     }
 
     public function sel($usua_id = ''){
-        $this->query = ($usua_id != '') ? "SELECT U.*,CONCAT(U.usua_pno,' ',U.usua_sno,' ',U.usua_pap,' ',U.usua_sap) AS usua_nom, C.*, B.*,CA.* FROM tbl_usuario AS U 
-            LEFT JOIN tbl_cuenta AS C ON U.usua_id = C.cuen_usua_fk 
-            LEFT JOIN tbl_cuenta_banco AS B ON C.cuen_banc_fk = B.cban_id 
+        $this->query = ($usua_id != '') ? "SELECT U.*,CONCAT(U.usua_pno,' ',U.usua_sno,' ',U.usua_pap,' ',U.usua_sap) AS usua_nom, CA.* FROM tbl_usuario AS U 
             LEFT JOIN tbl_cargo_area AS CA ON CA.care_id = U.usua_care_fk
             WHERE U.usua_id =  $usua_id"
-        : "SELECT U.*,CONCAT(U.usua_pno,' ',U.usua_sno,' ',U.usua_pap,' ',U.usua_sap) AS usua_nom, C.*, B.*,CA.* FROM tbl_usuario AS U 
-            LEFT JOIN tbl_cuenta AS C ON U.usua_id = C.cuen_usua_fk 
-            LEFT JOIN tbl_cuenta_banco AS B ON C.cuen_banc_fk = B.cban_id 
+        : "SELECT U.*,CONCAT(U.usua_pno,' ',U.usua_sno,' ',U.usua_pap,' ',U.usua_sap) AS usua_nom, CA.* FROM tbl_usuario AS U 
             LEFT JOIN tbl_cargo_area AS CA ON CA.care_id = U.usua_care_fk";
         $this->get_query();
         $num_rows = count($this->rows);

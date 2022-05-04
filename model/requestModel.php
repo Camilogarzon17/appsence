@@ -21,8 +21,6 @@ class requestModel extends model{
     }
     public function sel($soli_id = ''){
         $this->query = ($soli_id != '') ? "SELECT * FROM tbl_solicitud WHERE soli_id = $soli_id" : "SELECT S.*, SE.serv_nom,C.coti_id FROM tbl_solicitud AS S
-        INNER JOIN tbl_servicio AS SE ON SE.serv_id = S.soli_serv_fk 
-        LEFT JOIN tbl_cotizacion AS C ON C.coti_soli_fk = S.soli_id
         WHERE S.soli_esta_fk <> 4";
         $this->get_query();
         $num_rows = count($this->rows);
@@ -34,10 +32,8 @@ class requestModel extends model{
         return $data;
     }
     public function num_request(){
-        $this->query = "SELECT soli_esta_fk FROM tbl_solicitud WHERE soli_esta_fk = 1";
-        $this->get_query();
-        $num_rows = count($this->rows);
-        return $num_rows;
+
+        return 0;
     }
     public function del($soli_id = ''){
         $this->query = "DELETE FROM tbl_solicitud WHERE soli_id = $soli_id";

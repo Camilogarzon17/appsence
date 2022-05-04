@@ -4,33 +4,26 @@
 
     <div class="panel-right">
       <div class="contenedor-flex content-grafic cont-just-sbet">
-       <?php
-        $factures = new billController();
-        $resul_fact = $factures->fact_grafic('',true);
-        $resul_fact_est = $factures->fact_grafic('',false);
-        $resul_pays = $factures->pays_total('');
-        $pendiente = $resul_fact_est[1]['total'] - $resul_pays[2]['total_pago'];
-                ?>
                     <div class="cont-resu">
                         <div class="resu-item bck-col-1">
                             <h3>Facturas</h3>
                             <p>emitidas</p>
-                            <span><?php echo $resul_fact[0]['cantidad']; ?></span>
+                            <span>0</span>
                         </div>
                         <div class="resu-item bck-col-2">
                             <h3>Facturas</h3>
                             <p>pendientes por pagar</p>
-                            <span><?php echo $resul_fact_est[1]['cantidad']; ?></span>
+                            <span>0</span>
                         </div>
                         <div class="resu-item bck-col-3">
                             <h3>Saldo</h3>
                             <p>pendiente por pagar</p>
-                            <span>$ <?php echo number_format($pendiente); ?></span>
+                            <span>$ 0</span>
                         </div>
                         <div class="resu-item bck-col-4">
                             <h3>Total</h3>
                             <p>de ingresos</p>
-                            <span>$ <?php echo number_format($resul_fact[0]['total']); ?></span>
+                            <span>$ 0</span>
                         </div>
                     </div>
                     <?php
@@ -47,13 +40,6 @@
                         }
 
                         $year = date("Y");
-                        $informe      = new billController();
-                        $informe_data = $informe->sel_payment_month('','mes');
-                        $num_informe  = count($informe_data);
-                        $informe_anio      = new billController();
-                        $informe_data_anio = $informe_anio->sel_payment_month('','anio');
-                        $num_informe_anio  = count($informe_data_anio);
-
                      ?>
                     <div class="cont-graf">
                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -65,15 +51,15 @@
                             var data = google.visualization.arrayToDataTable([
                               <?php
 
-                                for ($n = 0; $n < $num_informe; $n++) {
-                                    $mon = (int) date("m", strtotime($informe_data[$n]['fpag_fec']));
+                                for ($n = 0; $n < 0; $n++) {
+                                    $mon = 1;
                                     for ($i=1; $i < sizeof($years); $i++) {
-                                        $y   = date("Y", strtotime($informe_data[$n]['fpag_fec']));
+                                        $y   = 2022;
                                         for ($m=1; $m <= 12; $m++) {
                                             if ($m == $mon) {
                                                 $mes[$m]=$m;
                                                 if ($y == $years[$i]) {
-                                                    $barra[$months[$m]][$y]  = $informe_data[$n]['total'];
+                                                    $barra[$months[$m]][$y]  = 0;
                                                     $anio[$y]=$y;
                                                 }
                                             }
@@ -143,10 +129,10 @@
                             var data = google.visualization.arrayToDataTable([
                               ['Año', 'Total'],
                             <?php
-                                for ($n = 0; $n < $num_informe_anio; $n++) {
-                                    $y   = date("Y", strtotime($informe_data_anio[$n]['fpag_fec']));
-                                    echo "['".$y."',".$informe_data_anio[$n]['total']."]";
-                                    if ($n<$num_informe_anio-1) {
+                                for ($n = 0; $n < 0; $n++) {
+                                    $y   = 2022;
+                                    echo "['".$y."',0]";
+                                    if ($n<-1) {
                                         echo ",";
                                     }
                                 }
