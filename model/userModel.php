@@ -93,6 +93,11 @@ class userModel extends model{
             array_push($data, $value);
         }
         return $data;
+
+        
+
+
+
     }
     public function update_pass($new_pass, $usua_id){
         $after_pass  = md5($new_pass);
