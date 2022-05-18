@@ -93,6 +93,7 @@ class absenceModel extends model{
         }
         return $data;
     }
+
     public function del($ause_id = ''){
         $this->query = "DELETE FROM tbl_ausencia WHERE ause_id = $ause_id";
         $this->set_query();

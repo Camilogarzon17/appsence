@@ -7,8 +7,7 @@ class userModel extends model{
         }
         $this->query = "INSERT INTO tbl_usuario (usua_ema, usua_nid, usua_pas, usua_pno, usua_sno, usua_pap, usua_sap, usua_pro, usua_dir, usua_ciu, usua_pai, usua_fna, usua_cel, usua_rol, usua_ipe,usua_ipo, usua_col, usua_sex, usua_care_fk, usua_esta_fk) VALUES ('$usua_ema', '$usua_nid', '$usua_pas', '$usua_pno', '$usua_sno', '$usua_pap', '$usua_sap', '$usua_pro', '$usua_dir', '$usua_ciu', '$usua_pai', '$usua_fna', '$usua_cel', '$usua_rol', '$usua_ipe','$usua_ipo', '$usua_col','$usua_sex', $usua_care_fk, $usua_esta_fk)";
         $this->set_query();
-        /*$this->query = "INSERT INTO tbl_cuenta (cuen_num,cuen_banc_fk,cuen_usua_fk) VALUES ('$cuen_num',$cuen_banc_fk, $id_reg)";
-        $this->set_query();*/
+
     }
 
     public function ins_cargo($cargo_data = array()){
@@ -79,23 +78,25 @@ class userModel extends model{
         $this->query = "DELETE FROM tbl_usuario WHERE usua_id = $usua_id";
         $this->set_query();
     }
+
     public function del_cargo($care_id = ''){
         $this->query = "DELETE FROM tbl_cargo_area WHERE care_id = $care_id";
         $this->set_query();
     }
+
     public function validate_user($usua_ema, $usua_pas = ''){
-        $encript     = md5($usua_pas);
-        $this->query = ($usua_pas !="")?"SELECT * FROM tbl_usuario WHERE usua_ema = '$usua_ema' AND usua_pas = '$encript'":"SELECT * FROM tbl_usuario WHERE usua_ema = '$usua_ema'";
+        $this->query = "SELECT * FROM tbl_usuario WHERE usua_ema = '$usua_ema'";
         $this->get_query();
-        $num_rows = count($this->rows);
-        $data     = array();
+        $data = array();
         foreach ($this->rows as $key => $value) {
-            array_push($data, $value);
+            if (password_verify($usua_pas, $value['usua_pas']))
+                array_push($data, $value);
         }
         return $data;
     }
+
     public function update_pass($new_pass, $usua_id){
-        $after_pass  = md5($new_pass);
+        $after_pass  = password_hash($new_pass, PASSWORD_DEFAULT);
         $this->query = "UPDATE tbl_usuario SET usua_pas='$after_pass' WHERE usua_id = '$usua_id'";
         $this->set_query();
     }

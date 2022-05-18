@@ -50,7 +50,6 @@ abstract class model{
     {
         $this->db_open();
         $result = $this->conn->query($this->query) or die($this->conn->error);
-        $num_rows = $result->num_rows;
         while ($this->rows[] = $result->fetch_assoc());
         $result->close();
         $this->db_close();

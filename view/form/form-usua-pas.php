@@ -1,6 +1,6 @@
 <div class='contenedor_padding'>
     <h3 class='titulo titulo_cuat'>Cambio de contraseña</h3>
-    <p>Recuerde que su contraseña debe totalmente personal, para evitar cualquier tipo de fraude.</p>
+    <p>Recuerde que su contraseña debe ser totalmente personal, para evitar cualquier tipo de fraude.</p>
 	<form method="POST" class="form-one">
 		<div class="contenedor-flex cont-just-sbet form_uno">
 			<input class="caja caja_diez" type="password" required placeholder="Contraseña actual" name="contra-actual">

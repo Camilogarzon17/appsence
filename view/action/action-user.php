@@ -80,7 +80,7 @@ if ($_POST['crud'] == "edi") {
         'usua_fna'     => $_POST['usua_fna'],
         'usua_cel'     => $_POST['usua_cel'],
         'usua_rol'     => $_POST['usua_rol'],
-        'usua_pas'     => MD5($_POST['usua_pas']),
+        'usua_pas'     => password_hash($_POST['usua_pas'],PASSWORD_DEFAULT),
         'usua_care_fk'     => $_POST['usua_care_fk'],
         'usua_sex'     => $_POST['usua_sex'],
         'usua_esta_fk'     => $_POST['usua_esta_fk']       
@@ -121,7 +121,7 @@ if ($_POST['crud'] == "edi") {
     $user->del($_POST['usua_id']);
     header("Location: usuarios&alert=1&text=Usuario eliminado correctamente!");
 }else if ($_POST['crud'] == "pas") {
-    if ($_POST['usua_pas'] == md5($_POST['contra-actual'])) {
+    if (password_verify($_POST['contra-actual'],$_POST['usua_pas'])) {
         $user->update_pass($_POST['contra-nueva2'], $_SESSION['usua_id']);
         $user_s = new sessionController();
         session_destroy();
