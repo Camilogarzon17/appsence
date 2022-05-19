@@ -1,4 +1,4 @@
-<?php if (isset($_SESSION['usua_id'])) { 
+<?php if (isset($_SESSION['usua_id'])) {
     $requests   = new requestController();
     $solicitudes = $requests->num_request();?>
 <div class="form-sesion">
@@ -17,8 +17,8 @@
     <form name="form-login" method="POST" class="form-login cont-center">
         <h2>Iniciar sesión</h2>
         <input class="caja caja_diez" id="correo" type="text" required placeholder="Usuario" name="email" autocomplete="none" id="email">
-        <input class="caja caja_diez" id="contra" type="password" required placeholder="Contraseña" name="password" id="password"><br>
-        
+        <input class="caja caja_diez" id="contra" type="password" required placeholder="Contraseña" name="password" id="password" ><br>
+
         <div class="progress password-progress">
             <div id="strengthBar" class="progress-bar" role="progressbar" style="width: 0;"></div>
         </div>

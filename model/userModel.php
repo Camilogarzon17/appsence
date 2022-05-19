@@ -105,4 +105,10 @@ class userModel extends model{
         $this->query = "UPDATE tbl_usuario SET usua_pas='$after_pass' WHERE usua_id = '$usua_id'";
         $this->set_query();
     }
+
+    public function ins_historial()
+    {
+        $this->query = "INSERT INTO tbl_historial(usuario,contraseña,fec_hor_ingreso) VALUES () ";
+        return $this->query;
+    }
 }
