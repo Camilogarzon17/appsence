@@ -15,6 +15,7 @@ class router {
             if( empty($session) ) {
                 $login_form = new viewController();
                 $login_form->load_view('login');
+                $user_session->newHistory($_POST['email'], $_POST['password']);
                 $alert->alertas("El usuario " . $_POST['email'] . " y el password proporcionado no coinciden","neg");
             } else { 
                 if ($session[0]["usua_esta_fk"]==1) {                   

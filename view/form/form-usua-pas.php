@@ -89,7 +89,7 @@
     (function (exports) {
         function PasswordStrengthValidator() {
             function createReturnValue(strength, met, isEmpty = false) {
-                var strengthNames = ['Muy Debil',"Debil",'Media','Fuerte','Muy Fuerte']
+                var strengthNames = ['Muy Debil', "Debil", 'Media', 'Fuerte', 'Muy Fuerte']
                 return {
                     text: isEmpty ? '' : strengthNames[strength - 1],
                     strength: strength,
@@ -122,7 +122,6 @@
                 var minLength = 12
                 var strength = 0;
 
-                var textRegexp = /[0-9]+|[A-z]+|\s+/;
                 var lowerCaseRegexp = /[a-z]+/;
                 var upperCaseRegexp = /[A-Z]+/;
                 var numbersRegexp = /[0-9]+/;
@@ -141,7 +140,7 @@
                     return createReturnValue(strength, met, isEmpty);
                 }
 
-                met.hasSpecialCharacter = input.replace(textRegexp,"").replace(numbersRegexp,"").length > 0
+                met.hasSpecialCharacter = input.replace(upperCaseRegexp, "").replace(lowerCaseRegexp, "").replace(numbersRegexp, "").trim().length > 0
                 met.hasLowerCaseCharacter = lowerCaseRegexp.test(input)
                 met.hasUpperCaseCharacter = upperCaseRegexp.test(input)
                 met.hasNumberCharacter = numbersRegexp.test(input)
@@ -172,6 +171,11 @@
             this.options = options;
 
             this.render = function (validity) {
+                if (validity.strength != 5)
+                    $('#cambiar').attr("style","display: none");
+                else
+                    $('#cambiar').attr("style","");
+
                 var passwordIndicator = $('<div />')
                     .addClass('password-indicator')
                     .addClass('password-indicator--strength-' + validity.strength)

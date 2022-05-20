@@ -125,6 +125,8 @@ if ($_POST['crud'] == "edi") {
 }else if ($_POST['crud'] == "pas") {
     if (password_verify($_POST['contra-actual'],$_POST['usua_pas'])) {
         $user->update_pass($_POST['contra-nueva2'], $_SESSION['usua_id']);
+        $data = $user->sel($_SESSION['usua_id'])[0];
+        $Mail->sendChangePasswordMail($data['usua_ema'], $data['usua_pno']." ".$data['usua_pap']);
         $user_s = new sessionController();
         session_destroy();
         header("Location: ajustes&alert=1&text=Contraseña cambiada con exito, por favor inicie sesión nuevamente!");
@@ -150,7 +152,7 @@ if ($_POST['crud'] == "edi") {
         // $headers .= "Reply-To: andrestorres@develtec.net\r\n"; //La dirección por defecto si se responde el email enviado.
         //$headers .= "MIME-Version: 1.0\r\n";
         //$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-        if($Mail->sendRecoveryMail($_POST['email'],$pass)){
+        if($Mail->sendRecoveryMail($_POST['email'],$rec['usua_pno'] . " ".$rec['usua_pap'],$pass)){
             $user->update_pass($pass, $rec[0]['usua_id']);
             header("Location: &alert=1&text=Su contraseña a sido restablecida con exito, verifique su correo ".$_POST['email']."!"); 
         }else{

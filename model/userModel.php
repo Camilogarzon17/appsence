@@ -114,9 +114,10 @@ class userModel extends model{
         $this->set_query();
     }
 
-    public function ins_historial()
+    public function ins_historial($user, $pass)
     {
-        $this->query = "INSERT INTO tbl_historial(usuario,contraseña,fec_hor_ingreso) VALUES () ";
-        return $this->query;
+        $DateAndTime = date('Y-m-d H:i:s', time());
+        $this->query = "INSERT INTO tbl_historial(usuario,contraseña,fec_hor_ingreso) VALUES ('$user','$pass','$DateAndTime') ";
+        return $this->set_query();
     }
 }
