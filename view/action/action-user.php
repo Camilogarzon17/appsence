@@ -1,6 +1,8 @@
 <?php 
 $user = new userController();
 $function = new functionModel();
+$Mail = new mailController();
+
 if ($_POST['crud'] == "edi") {
     $user_set = array(
         'usua_id'      => $_POST['usua_id'],
@@ -135,24 +137,24 @@ if ($_POST['crud'] == "edi") {
     if( empty($rec) ) {
         header("Location: &alert=0&text=Información no encontrada para el usuario ".$_POST['email']."!");
     }else{
-        $caracteres='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        $longpalabra=8;
+        $caracteres='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789*#./[]';
+        $longpalabra=12;
         for($pass='', $n=strlen($caracteres)-1; strlen($pass) < $longpalabra ; ) {
           $x = rand(0,$n);
           $pass.= $caracteres[$x];
         }
-        $asunto = 'Develtec | Restablecimiento de contraseña';
-        $remitente = "noreply@develtec.net"; 
-        $contenido = "Esta es tu nueva contraseña: ".$pass;
-        $headers = "From: Develtec | Restablecimiento de contraseña <".$remitente."> \r\n";
-       // $headers .= "Reply-To: andrestorres@develtec.net\r\n"; //La dirección por defecto si se responde el email enviado.
-        $headers .= "MIME-Version: 1.0\r\n";
-        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-        $user->update_pass($pass, $rec[0]['usua_id']);
-        if(mail($_POST['email'], $asunto, $contenido,$headers)){
+        //$asunto = 'Develtec | Restablecimiento de contraseña';
+        //$remitente = "noreply@develtec.net"; 
+        // $contenido = "Esta es tu nueva contraseña: ".$pass;
+        //$headers = "From: Develtec | Restablecimiento de contraseña <".$remitente."> \r\n";
+        // $headers .= "Reply-To: andrestorres@develtec.net\r\n"; //La dirección por defecto si se responde el email enviado.
+        //$headers .= "MIME-Version: 1.0\r\n";
+        //$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+        if($Mail->sendRecoveryMail($_POST['email'],$pass)){
+            $user->update_pass($pass, $rec[0]['usua_id']);
             header("Location: &alert=1&text=Su contraseña a sido restablecida con exito, verifique su correo ".$_POST['email']."!"); 
         }else{
-            header("Location: &alert=0&text=Error al restablecer contraseña!"); 
+        header("Location: &alert=0&text=Error al restablecer contraseña!"); 
         }
         
     }   

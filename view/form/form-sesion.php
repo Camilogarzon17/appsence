@@ -17,11 +17,8 @@
     <form name="form-login" method="POST" class="form-login cont-center">
         <h2>Iniciar sesión</h2>
         <input class="caja caja_diez" id="correo" type="text" required placeholder="Usuario" name="email" autocomplete="none" id="email">
-        <input class="caja caja_diez" id="contra" type="password" required placeholder="Contraseña" name="password" id="password" ><br>
+        <input class="caja caja_diez" id="contra" type="password" required placeholder="Contraseña" name="password" id="password"><br>
 
-        <div class="progress password-progress">
-            <div id="strengthBar" class="progress-bar" role="progressbar" style="width: 0;"></div>
-        </div>
                                 
         <div class="text-danger" id="passwordmessage"></div>    
         <input class="boton boton_prin usuario_boton_uno usuario_boton_uno" type="submit" name="ingresar" value="Ingresar"/><br>     

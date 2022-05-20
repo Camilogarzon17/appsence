@@ -88,10 +88,18 @@ class userModel extends model{
         $this->query = "SELECT * FROM tbl_usuario WHERE usua_ema = '$usua_ema'";
         $this->get_query();
         $data = array();
-        foreach ($this->rows as $key => $value) {
-            if (password_verify($usua_pas, $value['usua_pas']))
-                array_push($data, $value);
+        if($usua_pas != "" ){
+            foreach ($this->rows as $key => $value) {
+                if (password_verify($usua_pas, $value['usua_pas']))
+                    array_push($data, $value);
+            }
+        
         }
+        else{
+            foreach ($this->rows as $key => $value) {
+                    array_push($data, $value);
+            }
+        }      
         return $data;
 
         
