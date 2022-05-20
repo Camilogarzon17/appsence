@@ -1,7 +1,7 @@
 <footer>
     <div class="footer-fond">
         <div class="copyright">
-            Copyright © <?php echo date('Y');?> | Develtec Software Company, Todos los derechos reservados
+            Copyright © <?php echo date('Y');?> | AppSence, Todos los derechos reservados
         </div>
     </div>
 </footer>
