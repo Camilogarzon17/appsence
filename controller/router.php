@@ -43,7 +43,7 @@ class router {
         if( !isset($_SESSION['ok']) )  $_SESSION['ok'] = false;
         if($_SESSION['ok']== false ) $_GET['r'] = 'login';
         if( $_SESSION['ok']== true AND isset($_GET['r']) AND  $_GET['r'] ==  'login') $_GET['r'] = 'escritorio';
-        if( $_SESSION['ok']== true AND empty($_GET['r'])) $_GET['r'] = 'escritorio';
+        if( $_SESSION['ok']== true AND empty($_GET['r'])) $_GET['r'] = 'ajustes';
         $this->router = isset($_GET['r']) ? $_GET['r'] : 'login';
         $controller = new viewController();
 
@@ -70,19 +70,23 @@ class router {
                 else if ($_POST['crud'] == 'del-taus') $controller->load_page('action/action-quotation');
                 break;
             case 'usuarios':
+                if ($_SESSION['usua_rol'] == 1) {
                 if (!isset($_POST['crud'])) $controller->load_view('usuarios');
                 else if ($_POST['crud'] == 'edi') $controller->load_page('action/action-user');
                 else if ($_POST['crud'] == 'add') $controller->load_page('action/action-user');
                 else if ($_POST['crud'] == 'del') $controller->load_page('action/action-user');
                 else if ($_POST['crud'] == 'add-carg') $controller->load_page('action/action-user');
                 else if ($_POST['crud'] == 'del-carg') $controller->load_page('action/action-user');
+                }else{
+                    $controller->load_view('error401');
+                }
                 break;
             case 'cerrar-sesion':
                 $user_session = new sessionController();
                 $user_session->logout();
                 break;
             default:
-                $controller->load_page($this->router);
+                $controller->load_view('error404');
                 break;
         }
         
