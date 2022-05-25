@@ -25,11 +25,14 @@
         top: 25%;
         left: calc(var(--width));
         font-size: 1.2rem;
-        opacity: 0.5;
     }
 
-    .fa-eye-slash {
+    .frame .fa-eye-slash {
         opacity: 0;
+    }
+
+    .frame .fa-eye {
+        opacity: 0.5;
     }
 
 </style>
@@ -52,9 +55,15 @@
     <div>
         <form name="form-login" method="POST" class="form-login cont-center">
             <h2>Iniciar sesión</h2>
-            <input class="caja caja_diez" id="correo" type="text" required placeholder="Usuario" name="email" autocomplete="none" id="email">
-            <input class="caja caja_diez password" id="contra" type="password" required placeholder="Contraseña" name="password" id="password">
+            <div class="row">
+                <div class="col-md-10">
+                <input class="caja" id="correo" type="text" required placeholder="Usuario" name="email" autocomplete="none" id="email">
+                </div>
+                <div class="col-md-10">
+                <input class="caja password" id="contra" type="password" required placeholder="Contraseña" name="password" id="password">
             <div class="text-danger" id="passwordmessage"></div>
+                </div>
+            </div>
             <input class="boton boton_prin usuario_boton_uno usuario_boton_uno" type="submit" name="ingresar" value="Ingresar"/><br>
         </form>
         <button class="link link_terc link_uno" data-toggle="modal" data-target="#Modal-pass-usua"  data-name="Recuperar contraseña" title="Eviar correo">¿Olvido su contraseña?</button>
@@ -70,7 +79,7 @@
             if ($(this).data("class"))
                 custom_class = $(this).data("class");
 
-            if (!$(this).parent().hasClass(`frame ${custom_class}`)) {
+            if (!$(this).parent().hasClass(`frame`)) {
                 var width =  $(this).width();
                 if ($(this).hasClass("caja_diez"))
                     width *= 0.97
@@ -81,8 +90,8 @@
                 frame.append(`
             <label>
                 <input type="checkbox" id="methods" />
-                <i class="far fa-eye" style="--width: ${width / 2}px;"></i>
-                <i class="far fa-eye-slash" style="--width: ${width / 2}px;"></i>
+                <i class="far fa-eye" style="--width: ${width}px;"></i>
+                <i class="far fa-eye-slash" style="--width: ${width}px;"></i>
             </label>
             <br>
         `);
