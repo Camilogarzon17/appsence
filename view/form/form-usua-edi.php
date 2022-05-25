@@ -48,7 +48,7 @@
 					<option value="1">Administrador</option>
 					<option value="2">Empleado</option>
 				</select>
-				<input class="caja caja_diez" type="text" required placeholder="N° de cuenta" name="cuen_num" id="edi-usua_cuen_num" >
+				<input class="caja caja_diez" type="hidden" placeholder="N° de cuenta" name="cuen_num" id="edi-usua_cuen_num" >
 				<input type="hidden" name="r" value="ajustes">
 				<input type="hidden" name="crud" value="edi">
 				<input type="hidden" name="usua_ipea" id="edi-usua_usua_ipe">

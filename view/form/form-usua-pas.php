@@ -67,13 +67,13 @@
     <p>Recuerde que su contraseña debe ser totalmente personal, para evitar cualquier tipo de fraude.</p>
     <form method="POST" class="form-one">
         <div class="contenedor-flex cont-just-sbet form_uno">
-            <input class="caja caja_diez" type="password" required placeholder="Contraseña actual" name="contra-actual">
-            <input class="caja caja_diez" type="password" id="nPass1" required placeholder="Nueva contraseña"
+            <input class="caja caja_diez password" type="password" required placeholder="Contraseña actual" name="contra-actual">
+            <input class="caja caja_diez password" type="password" id="nPass1" required placeholder="Nueva contraseña"
                    name="contra-nueva1">
             <div class="caja_diez">
                 <div class="popover-content"></div>
             </div>
-            <input class="caja caja_diez" type="password" id="nPass2" required placeholder="Confirme contraseña"
+            <input class="caja caja_diez  password" type="password" id="nPass2" required placeholder="Confirme contraseña"
                    name="contra-nueva2">
             <input type="hidden" name="r" value="ajustes">
             <input type="hidden" name="crud" value="pas">

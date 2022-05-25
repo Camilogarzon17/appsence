@@ -113,6 +113,7 @@ if (isset($_SESSION['usua_id'])) {
 		var contenedor = document.getElementById('content_loader');
 		contenedor.style.visibility = 'hidden';
 		contenedor.style.opacity = '0';
+        initPasswords();
 	}
 </script>
 <?php

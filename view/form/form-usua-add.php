@@ -65,8 +65,16 @@
                     }
                     ?>
                 </select>
-                <input class="caja caja_cinc" type="password" required placeholder="Contraseña" name="usua_pas1" >
-                <input class="caja caja_cinc" type="password" required placeholder="Confirme contraseña" name="usua_pas">
+                <div class="row">
+                    <div class="col-6">
+                        <input class="caja" type="password" required placeholder="Contraseña" name="usua_pas1" >
+                    </div>
+                    <div class="col-6">
+                        <input class="caja" type="password" required placeholder="Confirme contraseña" name="usua_pas">
+                    </div>
+                </div>
+
+
                 <input type="hidden" name="r" value="ajustes">
                 <input type="hidden" name="crud" value="add">
                 <input class="boton boton_prin usuario_boton_uno usuario_boton_uno" type="submit" name="crear" value="Crear">

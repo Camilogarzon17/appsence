@@ -72,7 +72,7 @@ $datos_pass = array(
                     ><i class="fas fa-pencil-alt"></i>Editar</button>
                   </li>
                   <li class="nav-item">
-                      <button type="button" class="btn btn-uno" data-toggle="modal" data-target="#Modal-pas" data-usua_id="<?php echo $user_data[0]['usua_id']; ?>" data-usua_pas="<?php echo $user_data[0]['usua_pas']; ?>" id="pass"><i class=" fas fa-key"></i>Contraseña</button>
+                      <button type="button" class="btn btn-uno" data-toggle="modal" data-target="#Modal-pas" data-usua_id="<?php echo $user_data[0]['usua_id']; ?>" data-usua_pas="<?php echo $user_data[0]['usua_pas']; ?>" onclick="initPasswords('caja_diez')" id="pass"><i class=" fas fa-key"></i>Contraseña</button>
                   </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">

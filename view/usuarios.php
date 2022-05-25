@@ -16,7 +16,7 @@ $num_tit = empty($datos_users) ? 0 : count($datos_users);
                     <h5 class="titulo titulo_cuat">Empleados</h5>
                     <div class="menu-tabs">
                         <button type="button" data-toggle="modal" data-target="#Modal-add-carg" id="add-carg"><i class="fas fa-portrait"></i>Añadir cargo</button>
-                        <button type="button" data-toggle="modal" data-target="#Modal-add-usua" id="add-usua"><i class="fas fa-user-plus"></i>Agregar</button>
+                        <button type="button" data-toggle="modal" data-target="#Modal-add-usua" id="add-usua" ><i class="fas fa-user-plus"></i>Agregar</button>
                     </div>
                 </div>
                 <?php 

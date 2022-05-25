@@ -1,3 +1,38 @@
+<style>
+    .frame {
+        position: relative;
+    }
+
+    #methods {
+        position: absolute;
+        top: 19%;
+        left: 83%;
+        z-index: 10;
+        opacity: 0;
+    }
+    #methods:hover {
+        cursor: pointer;
+    }
+    #methods:checked ~ .fa-eye-slash {
+        opacity: 0.5;
+    }
+    #methods:checked ~ .fa-eye {
+        opacity: 0;
+    }
+
+    .frame i {
+        position: absolute;
+        top: 25%;
+        left: calc(var(--width));
+        font-size: 1.2rem;
+        opacity: 0.5;
+    }
+
+    .fa-eye-slash {
+        opacity: 0;
+    }
+
+</style>
 <?php if (isset($_SESSION['usua_id'])) {
     $requests   = new requestController();
     $solicitudes = $requests->num_request();?>
@@ -14,65 +49,56 @@
 </div>
 
 <?php }else{?>
-    <style>
-        .frame {
-            position: relative;
-        }
+    <div>
+        <form name="form-login" method="POST" class="form-login cont-center">
+            <h2>Iniciar sesión</h2>
+            <input class="caja caja_diez" id="correo" type="text" required placeholder="Usuario" name="email" autocomplete="none" id="email">
+            <input class="caja caja_diez password" id="contra" type="password" required placeholder="Contraseña" name="password" id="password">
+            <div class="text-danger" id="passwordmessage"></div>
+            <input class="boton boton_prin usuario_boton_uno usuario_boton_uno" type="submit" name="ingresar" value="Ingresar"/><br>
+        </form>
+        <button class="link link_terc link_uno" data-toggle="modal" data-target="#Modal-pass-usua"  data-name="Recuperar contraseña" title="Eviar correo">¿Olvido su contraseña?</button>
+    </div>
+<?php } ?>
+<script>
 
-        #methods {
-            position: absolute;
-            top: 19%;
-            left: 83%;
-            z-index: 10;
-            opacity: 0;
-        }
-        #methods:hover {
-            cursor: pointer;
-        }
-        #methods:checked ~ .fa-eye-slash {
-            opacity: 0.5;
-        }
-        #methods:checked ~ .fa-eye {
-            opacity: 0;
-        }
+        //initPasswords();
 
-        i {
-            position: absolute;
-            top: 25%;
-            left: 82%;
-            font-size: 1.2rem;
-            opacity: 0.5;
-        }
+    function initPasswords(custom_class = "") {
+        $("input.password").each(function() {
 
-        .fa-eye-slash {
-            opacity: 0;
-        }
+            if ($(this).data("class"))
+                custom_class = $(this).data("class");
 
-    </style>
-    <form name="form-login" method="POST" class="form-login cont-center">
-        <h2>Iniciar sesión</h2>
-        <input class="caja caja_diez" id="correo" type="text" required placeholder="Usuario" name="email" autocomplete="none" id="email">
-        <div class="frame">
-            <input class="caja caja_diez" id="contra" type="password" required placeholder="Contraseña" name="password" id="password">
+            if (!$(this).parent().hasClass(`frame ${custom_class}`)) {
+                var width =  $(this).width();
+                if ($(this).hasClass("caja_diez"))
+                    width *= 0.97
+
+                this.insertAdjacentHTML('afterend', `<div class="frame ${custom_class}"></div>`);
+                var frame = $(this).next("div.frame");
+                frame[0].appendChild(this);
+                frame.append(`
             <label>
                 <input type="checkbox" id="methods" />
-                <i class="far fa-eye"></i>
-                <i class="far fa-eye-slash"></i>
+                <i class="far fa-eye" style="--width: ${width / 2}px;"></i>
+                <i class="far fa-eye-slash" style="--width: ${width / 2}px;"></i>
             </label>
             <br>
-        </div>
-
-
-                                
-        <div class="text-danger" id="passwordmessage"></div>    
-        <input class="boton boton_prin usuario_boton_uno usuario_boton_uno" type="submit" name="ingresar" value="Ingresar"/><br>     
-    </form>
-    <button class="link link_terc link_uno" data-toggle="modal" data-target="#Modal-pass-usua"  data-name="Recuperar contraseña" title="Eviar correo">¿Olvido su contraseña?</button>
-
-    <script>
-        $('#methods').click(function () {
-            $('#contra').attr('type', $(this).is(':checked') ? 'text' : 'password');
-            $('.wrap').toggleClass('background');
+        `);
+            }
         });
-    </script>
-<?php } ?>
+
+        $('div.frame #methods').click(function () {
+            $(this).parent().parent().find('input.password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+        });
+
+        $('.modal').on('shown.bs.modal', function () {
+            $("div.frame").each(function () {
+                var width = $(this).find('input.password').width();
+
+                $(this).find("#methods").parent().find("i").attr("style",`--width: ${width}px;`)
+            })
+        });
+    }
+</script>

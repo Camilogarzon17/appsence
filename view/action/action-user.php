@@ -88,6 +88,8 @@ if ($_POST['crud'] == "edi") {
         'usua_esta_fk'     => $_POST['usua_esta_fk']       
     );
     $ejecutar = 0;
+    $user_data['usua_ipe']  = "public/img/usuario/0/user - new.jpg";
+
     if ($_FILES['usua_ipe']['name'] != '') {
         $url_per = $function->validateImg($_FILES['usua_ipe'],"0","usuario");
         if ($url_per == "existe") {
@@ -100,6 +102,7 @@ if ($_POST['crud'] == "edi") {
             $user_data['usua_ipe'] = $url_per;
         }
     }
+
     if ($_FILES['usua_ipo']['name'] != '') {
         $url_por = $function->validateImg($_FILES['usua_ipo'], "0","usuario");
         if ($url_por == "existe") {
